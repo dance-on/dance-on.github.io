@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>DanceOn</title>
+<link rel="stylesheet" href="stylesheet.css">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+<script type="text/javascript">
+
+    function redirect(){
+        if document.getElementById("email") =="1"{
+            console.log("1");
+            window.location="choreoHome.html";
+        }
+        else if document.getElementById("email") =="2"{
+            console.log("2");
+            window.location="dancerHome.html";
+        }
+        else{
+            console.log("fail");
+        }
+    }
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" id="firstColumn">
+        </div>
+        <div class="col-md-4" id="mainColumn" align="center">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <img src="images/staticLogo.png" style="width:450px">
+                    </tr>
+                    <form id="loginForm">
+                    <tr>
+                        <td id="emailtext">Email:</td>
+                        <td><input type="text" name="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td id="passwordtext">Password:</td>
+                        <td><input type="password" name="password" id:"password"></td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-default" value="Login" type="submit" id="login" onclick="redirect();"> </td>
+                    </form>
+                        <td><input class="btn btn-default" value="Sign Up" type="button" id="signUp" align="right"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4" id="thirdColumn">
+        </div>
+    </div>
+</div>
+
+</body>

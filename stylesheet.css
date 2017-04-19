@@ -1,0 +1,675 @@
+
+
+/*COLORS
+Flat colors...
+http://www.flatuicolorpicker.com/category/all
+
+#93a3b5 ugly grey
+#5a7391 dark grey (Taylor Swift)
+#7CDBD5 seafoam green (side bar)
+#004E5A dark seafoam green (top bar)
+#FD8F94 salmon pink
+*/
+
+/*LOGIN*/
+
+#email{
+  margin: auto;
+}
+
+#password{
+  margin: auto;
+}
+
+
+#login{
+  width: 110px;
+  margin-right: 20px;
+}
+#signUp{
+  width: 110px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+  /*HOME*/
+tr {
+	height: 20px;
+	width: 100px;
+	padding: 5px;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+  height: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+.btn {
+	border: none;
+  border-radius:0px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin: auto;
+  background-color: #02C8A7;
+  -webkit-transition-duration: 0.1s; /* Safari */
+  transition-duration: 0.1s;
+}
+
+.btn:hover{
+      background-color:#16a085;
+      color:white;
+    }
+
+
+.btn2 {
+  border: none;
+  color: white;
+  padding: 1px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin: auto;
+  background-color: #02C8A7;
+  -webkit-transition-duration: 0.1s; /* Safari */
+  transition-duration: 0.1s;
+}
+
+.btn2:hover{
+        background-color:#16a085;
+        color:white;
+      }
+
+.img-responsive{ /*profile pic*/
+  margin-left:auto;
+  margin-right:auto;
+  padding-top:10px;
+  border-radius: 50%;
+}
+
+#mainColumn{
+	margin-top: 130px;
+}
+
+#logout{
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  -webkit-transition-duration: 0.1s; /* Safari */
+  transition-duration: 0.1s;
+  margin-left: 1180px;
+  margin-top:6px;
+  padding:4px 13px;
+}
+
+#logout:hover{
+       background:#FD8F94;
+    }
+
+.navbar {
+  min-height: 0px;
+}
+
+.navbar-header{
+    height: 50px;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: 0px;
+}
+
+.container {
+    width: 100%;
+    white-space: nowrap;
+    padding-top: 40px;
+    height: 100%;
+}
+
+.navbar .navbar-collapse {
+    margin-left:-15px;
+    margin-right:-15px;
+} 
+
+.nav2{
+    margin-top: 20px;
+    left: 0px;
+    width: 224px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+#user {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#sidebar {
+    margin-top: 79.25px;
+}
+
+#addDance{
+cursor: pointer;
+}
+
+/*TOP BAR */
+#logo{
+  margin-top:-5px;
+  padding-left: 25px;
+  height: 40px;
+}
+
+/*SIDEBAR AND PROFILE */
+
+.sidebar{
+    height:100%;
+}
+
+html, body, .col-md-3{
+  height:100%;
+}
+
+.col-md-3{
+    border: 1px solid #ecf0f1;
+    margin-left: -30px;}
+}
+
+.profile-userpic{
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  border-radius: 50% !important;
+}
+
+.profile-user {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-username {
+  letter-spacing: 1px;
+  font-size: 18px;
+  color:#616161;
+}
+
+.profile-usertitle{
+  color: #757575;
+}
+
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #616161; /*dark grey*/
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+.profile-usermenu ul li ul li {
+  color: #5b9bd1;
+  font-size: 16px;
+  font-weight: 400;
+  height: 42px;
+  width: 100%;
+}
+
+.profile-usermenu ul li ul li:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+/*DANCE NAV MENU -subnav, navlist*/
+
+#danceName{
+  font-weight: bolder;
+  letter-spacing: 1px;
+  font-size:22px;
+  cursor:pointer;
+  padding: 5px;
+}
+
+.sidebar-nav .dropdown-menu {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 5px;
+    border-radius: 0;
+    border: none;
+    background-color: #222;
+    box-shadow: none;
+}
+
+.navbar-horiz {
+  height: 42px;
+  padding: 0px;
+  margin-left: -30px;
+  margin-right: -100px;
+}
+
+.navbar ul {
+  margin-right: 30px;
+  height: 42px;
+}
+
+.navbar ul li{
+  display: inline;
+  text-align: center;
+  margin: auto;
+  height: 42px;
+}
+
+.navbar ul li:hover {
+  background-color: black;
+}
+
+.navbar ul li a {
+  width: 100px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.col-md-9{
+  margin-left:20px;
+}
+
+.dance-header {
+  font-size: 40px;
+  background-color: transparent;
+}
+
+#subnav{
+  font-size: 16px;
+  font: helvetica;
+  text-decoration: none;
+}
+
+.nav-item{
+  border:.5px solid #ecf0f1;
+}
+
+#row_for_subnav{
+/*  background-color: #E0E0E0;*/
+/*  margin-right: -60px;*/
+}
+
+/*INTRODUCTION*/
+
+.introduction{
+  text-align: center;
+  margin-top:100px;
+} 
+
+.em{
+  font-size:30px;
+}
+
+.em-syringe{
+  font-size:20px;
+}
+
+/*VIDEO*/
+
+#dance_title{
+    background-color: #5a7391;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    text-align: center;
+}
+
+ul {
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.nav-tabs{
+    margin-left: 25%
+}
+
+#dance_video{
+  margin: 0px;
+  margin-left:-10px;
+}
+
+h2{
+  font-size: 22px;
+}
+
+#more_videos{
+  margin-top: 30px;
+  margin-left: -10px;
+}
+
+.more_vids_div{
+  float: left;
+}
+
+.upload_vid_div{
+  /*margin-left:40px;*/
+  margin-top: 15px;
+  float:right;
+}
+
+.upload-btn{
+  width: 100px;
+  height:30px;
+  padding:0;/*
+  margin-bottom*/: 50px;
+  margin-top: -27px;
+/*  margin-top: /*10px*/
+  /*float:right;*/
+  margin-left: 220px;
+}
+
+/*END VIDEO*/
+
+
+
+
+/*CALENDAR*/
+    h1.title {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .calendar {
+        margin: 0px 40px;
+    }
+   
+    [data-toggle="calendar"] > .row > .calendar-day {
+        font-family: 'Roboto', sans-serif;
+        width: 14.28571428571429%;
+        border: 1px solid rgb(235, 235, 235);
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        min-height: 95px;
+    }
+    [data-toggle="calendar"] > .row > .calendar-day.calendar-no-current-month {
+        color: rgb(200, 200, 200);
+    }
+    [data-toggle="calendar"] > .row > .calendar-day:last-child {
+        border-right-width: 1px;
+    }
+
+    [data-toggle="calendar"] > .row:last-child > .calendar-day {
+        border-bottom-width: 1px;
+    }
+
+    .calendar-day > time {
+        position: absolute;
+        display: block;
+        bottom: 0px;
+        left: 0px;
+        font-size: 12px;
+        font-weight: 300;
+        width: 100%;
+        padding: 10px 10px 3px 0px;
+        text-align: right;
+    }
+    .calendar-day > .events {
+        cursor: pointer;
+        height:100px;
+    }
+    .calendar-day > .events > .event h4 {
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 3px;
+    }
+    .calendar-day > .events > .event > .desc,
+    .calendar-day > .events > .event > .location,
+    .calendar-day > .events > .event > .datetime,
+    .calendar-day > .events > .event > .attending {
+        display: none;
+    }
+    .calendar-day > .events > .event > .progress {
+        height: 10px;
+    }
+
+/*END CALENDAR*/
+
+/*FORUM*/
+.btn-blog {
+    color: #ffffff;
+    background-color: #37d980;
+    border-color: #37d980;
+    border-radius:0;
+    margin-bottom:10px
+}
+.btn-blog:hover,
+.btn-blog:focus,
+.btn-blog:active,
+.btn-blog.active,
+.open .dropdown-toggle.btn-blog {
+    color: white;
+    background-color:#34ca78;
+    border-color: #34ca78;
+}
+
+#submitQ{
+  background-color: #28a360;
+}
+#submitQ:hover{
+  background-color: #34ca78;
+}
+#submitQ:active{
+  background-color: #34ca78;
+}
+
+.blogShort{
+  margin:8px;
+}
+ h1{
+  font-size: 18px;
+}
+ .margin10{margin-bottom:10px; margin-right:10px;}
+
+ .img-thumbnail{
+  padding: 1px;
+  vertical-align: middle;
+ }
+
+.question{
+  margin-bottom:23px;
+}
+
+.question-text{
+  padding-top:8px;
+}
+
+.answer-text{
+  padding-top: 6px;
+}
+
+#older-qs{
+  width:5px;
+  text-decoration: underline;
+}
+
+#older-qs:hover{
+  color:blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#older-an{
+  width:5px;
+  font-size: 12px;
+  text-decoration: underline;
+  margin-top: -12px;
+}
+
+#older-an:hover{
+  color:blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#older-anc{
+  width:5px;
+  font-size: 12px;
+  text-decoration: underline;
+  margin-top: 4px;
+}
+
+#older-anc:hover{
+  color:blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#older-calendar{
+  width:5px;
+  font-size: 12px;
+  text-decoration: underline;
+  margin-top: -12px;
+}
+
+#older-calendar:hover{
+  color:blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*Dancer Stagin Page*/
+#stagingList {
+  margin-top: 25px;
+}
+
+#currentStagingLabel{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#currentStagingTimeLabel{
+  font-size: 14px;
+}
+/*Choreographer Staging Page*/
+
+#addSlide{
+  border:none;
+}
+
+#newStaging{
+  margin: 5px;
+  padding: 7px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+#stagings{
+  margin-top: 75px;
+  padding-top:30px;
+}
+
+#newDancer{
+   margin-top: -5px;
+   padding: 0px;
+   padding-top: 7px;
+   padding-bottom: 7px;
+   padding-left: 7px;
+   padding-right: 7px; 
+
+}
+#newDancer:hover{
+ background-color: #34ca78;
+}
+
+/* Dancer About */
+
+.about{
+  background-color: white;
+  padding-right: 1000px;
+  padding-left: 20px;
+  margin-left: -15px;
+  padding-top: 10px;
+}
+
+.titleAbout{
+  font-weight: bold;
+}
+
+.bodyAbout{
+  margin-bottom: 15px;
+}
+
+/* Choreographer About */
+
+.click{
+  color: white;
+  background-color:#34ca78;
+  border-color: #34ca78;
+}
+
+#countdown{
+  margin-top: 15px;
+}
+
+#delYes{
+  position: center;
+  float: left;
+}
+
+#delCancel{
+  position: center;
+  float: left;
+}
+
+/*.form-group{
+  margin:10px;
+}*/
+/*END FORUM*/

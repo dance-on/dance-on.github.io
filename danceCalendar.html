@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+    <title>Dance On</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <script>
+    	var currentOpen = false;
+    	$(document).on('click', "#currentDances", function(evt) {
+    		if (!currentOpen) {
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Bad Blood"));
+    			li1.id = "badBlood";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Shake It Off"))
+    			li2.id = 'shakeItOff';
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("currentDances").appendChild(ul);
+    			currentOpen = true;
+    		} else {
+    			$("#badBlood").remove();
+    			$("#shakeItOff").remove();
+    			currentOpen = false;
+    		}
+    		
+    	});
+
+    	var previousOpen = false;
+    	$(document).on('click', "#previousDances", function(evt) {
+    		console.log(previousOpen);
+    		if (!previousOpen) {
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Fifteen"));
+    			li1.id = "fifteen";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Blank Space"))
+    			li2.id = "blankSpace";
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("previousDances").appendChild(ul);
+    			previousOpen = true;
+    		} else {
+    			console.log("check");
+    			$("#fifteen").remove();
+    			$("#blankSpace").remove();
+    			previousOpen = false;
+    		}
+    		
+    	});
+    </script>
+
+
+
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="navbar-header">
+              <a id="logo" class="navbar-brand" href="danceHome.html"><img style="height:40px" src="images/Logo.png"></a>
+            </div>
+              <button onclick="location.href ='index.html';" id="logout" class="logout"> Log Out</button>
+    </nav>
+
+  <div class="container">>
+    <div class="col-md-3">
+      <div class="sidebar">
+        <div class="profile-userpic">
+          <img src="images/SelenaGomez.png" class="img-responsive" alt="" height="150" width="150">
+        </div>
+        <div class="profile-user">
+          <div class="profile-username">
+            Selena Gomez
+          </div>
+          <h6 class="profile-usertitle">Dancer</h6>
+        </div>
+
+        <div class="profile-usermenu">
+          <ul class="nav sidebar-nav">
+            <li class="dropdown" id="currentDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+                 <!--    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">True Colors</a></li>
+                      <li><a href="#">Don't Stop Believing</a></li>
+                    </ul> -->
+            </li>
+            <li class="dropdown" id="previousDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+                    <!-- <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Rumor Has It</a></li>
+                      <li><a href="#">Bring It On</a></li>
+                    </ul> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+
+<!--       <nav id="navbar" class="navbar-horiz navbar-collapse navbar-light">
+        <ul>
+          <li class="nav-item" role="presentation"><a href="#">About</a></li>
+          <li class="nav-item" role="presentation"><a href="danceVideo.html">Video</a></li>
+          <li class="nav-item" role="presentation"><a href="#">Staging</a></li>
+          <li class="nav-item" role="presentation"  class="active"><a href="#">Calendar</a></li>
+          <li class="nav-item" role="presentation"><a href="#">Forum</a></li>
+        </ul>
+      </nav> -->
+
+<div class="row" id="row_for_subnav">
+        <div id="danceName" contenteditable="true">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+              /*[contenteditable="true"] { padding: 10px; outline: 2px dashed #CCC; }*/
+/*              [contenteditable="true"]:hover {outline: 2px dashed #0090D2; }*/
+            </style>
+            <i class="em em-syringe"></i>Bad Blood
+          </div>
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li class="nav-item" role="presentation"><a href="danceAbout.html">About</a></li>
+          <li class="nav-item" role="presentation"><a href="danceVideo.html">Video</a></li>
+          <li class="nav-item" role="presentation"><a href="danceStaging.html">Staging</a></li>
+          <li style="background-color:#eeeeee" class="nav-item" role="presentation" class="active"><a href="danceCalendar.html">Calendar</a></li>
+          <li class="nav-item" role="presentation"><a href="danceForum.html">Forum</a></li>
+                </ul>
+           </div>
+
+
+      <h1 class="title text-center"> April 2017 </h1>
+      <div class="calendar" data-toggle="calendar">
+        <div class="row">
+          <div class="col-xs-12 calendar-day calendar-no-current-month">
+            <time datetime="2014-06-29">29</time>
+          </div>
+          <div class="col-xs-12 calendar-day calendar-no-current-month">
+            <time datetime="2014-06-30">30</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-01">01</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-02">02</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-03">03</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-04">04</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-05">05</time>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-06">06</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-07">07</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-08">08</time>
+                    <div class="events">
+              <div class="event">
+                <h4>Bad Blood Rehearsal</h4>
+                <div class="desc">
+                  <p>Take a Break and enjoy Live dance and Art from Eries own local Talent</p>
+                  <p>Support for this program is provided in part from an Erie Arts & Culture Project Grant, made possible by community contributions to the Combined Arts & Cultural Campaign and the Erie Arts Endowment.</p>
+                </div>
+                <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> State St and Rt 5, Erie, Pa.</div>
+                <div class="datetime"> <span class="glyphicon glyphicon-time"></span> 12:00am - 1:00pm</div>
+                <div class="attending">
+                  <img src="http://api.randomuser.me/portraits/women/54.jpg" />
+                  <img src="http://api.randomuser.me/portraits/men/27.jpg" />
+                  <img src="http://api.randomuser.me/portraits/men/61.jpg" />
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="134" style="width: 4.477%;">
+                    <span class="sr-only">4.477% Filled</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-09">09</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-10">10</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-11">11</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-12">12</time>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-13">13</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-14">14</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-15">15</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-16">16</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-17">17</time>>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-18">18</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-19">19</time>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-20">20</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-21">21</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-22">22</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-23">23</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-24">24</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-25">25</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-26">26</time>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-27">27</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-28">28</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-29">29</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-30">30</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-31">31</time>
+          </div>
+          <div class="col-xs-12 calendar-day calendar-no-current-month">
+            <time datetime="2014-08-01">01</time>
+          </div>
+          <div class="col-xs-12 calendar-day calendar-no-current-month">
+            <time datetime="2014-08-02">02</time>
+          </div>
+        </div>
+      </div>
+
+  
+  </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
+
+
+
+
+
+

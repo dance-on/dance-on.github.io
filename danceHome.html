@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Forgot your moves? Just Dance On!">
+    <meta name="author" content="Amy Liu, Luana Lopes Lara, Cristina Martinez-Acha, Or Oppenheimer">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+    <title>Dance On</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <!-- Custom Scripts -->
+    <script>
+        var currentOpen = false;
+        $(document).on('click', "#currentDances", function(evt) {
+            if (!currentOpen) {
+                var ul = document.createElement("ul");
+                var li1 = document.createElement("li");
+                li1.appendChild(document.createTextNode("Bad Blood"));
+                li1.id = "badBlood";
+                var li2 = document.createElement("li");
+                li2.appendChild(document.createTextNode("Shake It Off"))
+                li2.id = 'shakeItOff';
+
+                ul.appendChild(li1);
+                ul.appendChild(li2);
+                document.getElementById("currentDances").appendChild(ul);
+                currentOpen = true;
+            } else {
+                $("#badBlood").remove();
+                $("#shakeItOff").remove();
+                currentOpen = false;
+            }
+            
+        });
+
+        var previousOpen = false;
+        $(document).on('click', "#previousDances", function(evt) {
+            console.log(previousOpen);
+            if (!previousOpen) {
+                var ul = document.createElement("ul");
+                var li1 = document.createElement("li");
+                li1.appendChild(document.createTextNode("Fifteen"));
+                li1.id = "fifteen";
+                var li2 = document.createElement("li");
+                li2.appendChild(document.createTextNode("Blank Space"))
+                li2.id = "blankSpace";
+
+                ul.appendChild(li1);
+                ul.appendChild(li2);
+                document.getElementById("previousDances").appendChild(ul);
+                previousOpen = true;
+            } else {
+                console.log("check");
+                $("#fifteen").remove();
+                $("#blankSpace").remove();
+                previousOpen = false;
+            }
+            
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#badBlood", function(evt) {
+            window.location.href="danceAbout.html";
+        });
+
+        $(document).on('click', "#submitDance", function(evt) {
+            // Add the new dance here
+        });
+
+        function chooseFile() {
+            $("#fileInput").click();
+        }
+
+    </script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="navbar-header">
+              <a id="logo" class="navbar-brand" href="home.html"><img style="height:40px" src="images/Logo.png"></a>
+            </div>
+              <button onclick="location.href ='index.html';" id="logout" class="logout"> Log Out</button>
+    </nav>
+
+  <div class="container">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <div class="profile-userpic">
+          <img src="images/SelenaGomez.png" class="img-responsive" alt="" height="150" width="150">
+        </div>
+        <div class="profile-user">
+          <div class="profile-username">
+            Selena Gomez
+          </div>
+          <h6 class="profile-usertitle">Dancer</h6>
+        </div>
+
+        
+
+        <div class="profile-usermenu">
+          <ul class="nav sidebar-nav">
+            <li class="dropdown" id="currentDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+            </li>
+            <li class="dropdown" id="previousDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+            </li>
+            <li><a id="addDance" data-toggle="modal" data-target="#danceModal"><b>+ Add a Dance</b> </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9"></div>
+        <div class="introduction">
+        <h3>Welcome to Dance On!</h3>
+        <h4>The only dancer & choreographer organization app you will ever need.</h4>
+        <i class="em em-dancers"></i><i class="em em-dancers"></i>
+        <br>
+        <h5> Get started by selecting an existing dance or by adding a new dance on the left!<br>
+        <-------------------------
+        </h5>
+        </div>
+    </div>
+
+<!-- Modal Dance-->
+  <div class="modal fade" id="danceModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding a new dance</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Dance Name</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Ex.'Bad Blood'">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Type of Dance</label>
+              <select class="form-control" id="dancer_color">
+                <option>Current Dance</option>
+                <option>Previous Dance</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submitDance" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
+
+
+
+
+

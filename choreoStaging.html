@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+    <title>Dance On</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <script>
+    	var activeStaging = 1;
+    	$(document).ready(function() {
+    		$("#staging1").css({"border-style": "solid"});
+    		$("#currentStaging").css({"border-style": "solid"});
+    	});
+
+    	var currentOpen = false;
+    	$(document).on('click', "#currentDances", function(evt) {
+    		if (!currentOpen) {
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Bad Blood"));
+    			li1.id = "badBlood";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Shake It Off"))
+    			li2.id = 'shakeItOff';
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("currentDances").appendChild(ul);
+    			currentOpen = true;
+    		} else {
+    			$("#badBlood").remove();
+    			$("#shakeItOff").remove();
+    			currentOpen = false;
+    		}
+    		
+    	});
+
+    	var previousOpen = false;
+    	$(document).on('click', "#previousDances", function(evt) {
+    		console.log(previousOpen);
+    		if (!previousOpen) {
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Fifteen"));
+    			li1.id = "fifteen";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Blank Space"))
+    			li2.id = "blankSpace";
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("previousDances").appendChild(ul);
+    			previousOpen = true;
+    		} else {
+    			console.log("check");
+    			$("#fifteen").remove();
+    			$("#blankSpace").remove();
+    			previousOpen = false;
+    		}
+    	});
+
+    	var numStagings = 1;
+    	$(document).on('click', "#newStaging", function(evt) {
+    		numStagings += 1;
+    		activeStaging = numStagings;
+    		var ul = document.getElementById("stagingList");
+    		var li = document.createElement("li");
+    		var div = document.createElement("div");
+    		$(div).css({'height': '150', 'width': '200'});
+    		li.appendChild(div);
+    		div.id = "staging" + numStagings;
+    		ul.appendChild(li);
+
+    		$("#" + div.id).css({"border-style": "solid"});
+    		for (i = 1; i < numStagings; i++) {
+    			$("#staging" + i).css({"border-color": "#cfd2d6"});
+    		}
+    		$("#currentStaging").empty();
+    	});
+
+    	var numDancers = 0;
+    	var activeDancer;
+    	var mouseOffsetX = 0;
+    	var mouseOffsetY = 0;
+    	var startingX = 0;
+    	var startingY = 0;
+    	var initialsToID = {};
+    	$(document).on('click', "#submit", function(evt) {
+    		console.log("check");
+    		numDancers += 1;
+    		var image = document.createElement("img");
+    		var colorOptions = document.getElementById('dancer_color');
+    		var initials = document.getElementById('name_tag').value;
+    		initialsToID[initials] = numDancers + '-tag';
+    		var div = document.createElement("div");
+    		div.id = numDancers + '-tag';
+    		document.getElementById("currentStaging").appendChild(div);
+    		document.getElementById(numDancers + '-tag').innerHTML = initials;
+    		$(div).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '0px', 'left': '0px'});
+
+    		var color = colorOptions.options[colorOptions.selectedIndex].value;
+    		console.log("color: " + color);
+    		image.id = numDancers;
+    		image.src = 'images/' + color + '_circle.png';
+    		image.width = 40;
+    		image.height = 40;
+
+    		document.getElementById("currentStaging").appendChild(image);
+    		$(image).css({'position': 'absolute', 'top': '0px', 'left': '0px'});
+
+    		$(image).mousedown(function(evt){
+    			evt.preventDefault();
+    			activeDancer = image.id;
+    			var pos = $(image).position();
+    			startingX = pos.left;
+    			startingY = pos.top;
+    			mouseOffsetX = evt.clientX - $(image).offset().left;
+    			mouseOffsetY = evt.clientY - $(image).offset().top;
+    		});
+
+    		var image2 = document.createElement("img");
+    		image2.id = activeStaging + '-' + numDancers;
+    		image2.src = 'images/' + color + '_circle.png';
+    		image2.width = 40/3.0;
+    		image2.height = 40/3.0;
+    		$(image2).css({'position':'relative', 'top': -5, 'left': 0, 'z-index': '1'});
+    		document.getElementById("staging" + activeStaging).append(image2);
+    	});
+
+    	$(document).mousemove(function(evt) {
+    		evt.preventDefault();
+    		if (activeDancer != null) {
+    			$('#' + activeDancer).offset({'top': evt.clientY - mouseOffsetY, 'left': evt.clientX - mouseOffsetX});
+    			$('#' + activeDancer + '-tag').offset({'top': evt.clientY - mouseOffsetY, 'left': evt.clientX - mouseOffsetX});
+    		}
+    	});
+
+    	$(document).mouseup(function(evt) {
+    		evt.preventDefault();
+    		if (activeDancer != null) {
+    			var pos = $("#" + activeDancer).position();
+    			if (pos.left < 0 || pos.left > 600 || pos.top < 0 || pos.top > 450) {
+    				$('#' + activeDancer).css({'top': startingY, 'left': startingX});
+    				$('#' + activeDancer + '-tag').css({'top': startingY, 'left': startingX});
+    				$('#' + activeStaging + "-" + activeDancer).css({'top': Math.floor(startingY/3.0), 'left': Math.floor(startingX/3.0)});
+    			} else {
+	    			$('#' + activeStaging + "-" + activeDancer).css({'top': Math.floor(pos.top/3.0), 'left': Math.floor(pos.left/3.0)});
+    			}
+    			
+    		}
+    		activeDancer = null;
+    	});
+
+    	// $(document).on('click', "#submit-delete", function(evt) {
+    	// 	var initials = document.getElementById('name_tag').value;
+    	// 	var name = document.getElementById(initialsToID.initials);
+    	// 	var nameID = initialsToID.initials;
+    	// 	console.log('check2');
+    	// 	document.getElementById("currentStaging").removeChild(name);
+    	// 	var imageID = nameID.substr(0, nameID.indexOf('-'));
+    	// 	console.log('imageID: ' + imageID);
+    	// 	var image = document.getElementById(imageID);
+    	// 	document.getElementById('currentStaging').removeChild(image);
+    	// });
+
+    </script>
+
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="navbar-header">
+              <a id="logo" class="navbar-brand" href="choreoHome.html"><img style="height:40px" src="images/Logo.png"></a>
+            </div>
+              <button onclick="location.href ='index.html';" id="logout" class="logout"> Log Out</button>
+    </nav>
+
+  <div class="container">
+
+    <div class="col-md-3">
+      <div class="sidebar">
+        <div class="profile-userpic">
+          <img src="images/TaylorSwift.png" class="img-responsive" alt="" height="150" width="150">
+        </div>
+        <div class="profile-user">
+          <div class="profile-username">
+            Taylor Swift
+          </div>
+          <h6 class="profile-usertitle">Choreographer</h6>
+        </div>
+
+        <div class="profile-usermenu">
+          <ul class="nav sidebar-nav">
+            <li class="dropdown" id="currentDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+            </li>
+            <li class="dropdown" id="previousDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+
+            </li>
+            <li><a id="addDance" data-toggle="modal" data-target="#danceModal"><b>+ Add a Dance</b> </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row" id="row_for_subnav">
+        <div id="danceName" contenteditable="true">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+            </style>
+            <i class="em em-syringe"></i>Bad Blood
+          </div>
+
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li class="nav-item" role="presentation"><a href="choreoAbout.html">About</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoVideo.html">Video</a></li>
+          <li style="background-color:#eeeeee" class="nav-item" role="presentation"><a href="choreoStaging.html">Staging</a></li>
+          <li class="nav-item" role="presentation" class="active"><a href="choreoCalendar.html">Calendar</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoForum.html">Forum</a></li>
+                </ul>
+           </div>
+
+      <div id="addSlide" class="col-md-3">
+      <input id="newStaging" value="Add slide" type="button" class="btn">
+     </div>
+      <div id="stagings">
+      	<ul id="stagingList">
+      		<li>
+            <div id="staging1" style="border-width:2px; color:#cfd2d6; width:200px; height:150px"></div>
+          </li>
+        </ul>
+<!--         <canvas id="currentStaging" width="600" height="450" style="position:absolute; left:300px; top:70px"></canvas> -->
+        <div id="currentStaging" style="border-width:2px; color:#cfd2d6; position:absolute; left:300px; top:97px; height:420px; width:600px">
+        </div>
+        
+        <div id="currentStagingLabel" width="600px" height="40px" style="position:absolute;left:300px; top:530px">
+        <div class="form-inline">
+          <div class="form-group">
+            <input id="deleteDance" value="Delete Staging" type="button" class="btn" data-toggle="modal" data-target="#myModal1">
+          </div>
+          <div class="form-group">
+        	  <input id="addDancer" value="Add Dancer" type="button" class="btn" data-toggle="modal" data-target="#myModal2">
+          </div>
+          <div class="form-group">
+            <input id="deleteDancer" value="Delete Dancer" type="button" class="btn" data-toggle="modal" data-target="#myModal3">
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Modal Delete Staging-->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Are you sure you want to delete this staging?</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="delYes">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="delCancel">Cancel</button>
+        </div>
+      </div>
+      </div>
+  </div>
+
+
+  <!-- Modal Dancer -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding a new dancer</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Dancer Initials:</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Enter dancer initials">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Choose color:</label>
+              <select class="form-control" id="dancer_color">
+                <option>red</option>
+                <option>blue</option>
+                <option>green</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" id="submit" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <!-- Modal Delete Dancer-->
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Deleting a dancer</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Dancer Initials:</label>
+            <input type="text" class="form-control" id="name_tag" placeholder="Enter dancer initials">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submit-delete" data-dismiss="modal">Delete</button>
+        </div> 
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal Dance-->
+  <div class="modal fade" id="danceModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding a new dance</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Dance Name</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Ex.'Bad Blood'">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Type of Dance</label>
+              <select class="form-control" id="dancer_color">
+                <option>Current Dance</option>
+                <option>Previous Dance</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submitDance" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+ <!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
