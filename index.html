@@ -3,25 +3,15 @@
 
 <head>
 <title>DanceOn</title>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="stylesheet.css">
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-
-<script type="text/javascript">
-
-    function redirect(){
-        if document.getElementById("email") =="1"{
-            console.log("1");
-            window.location="choreoHome.html";
-        }
-        else if document.getElementById("email") =="2"{
-            console.log("2");
-            window.location="dancerHome.html";
-        }
-        else{
-            console.log("fail");
-        }
-    }
-</script>
 
 </head>
 
@@ -44,13 +34,13 @@
                     </tr>
                     <tr>
                         <td id="passwordtext">Password:</td>
-                        <td><input type="password" name="password" id:"password"></td>
+                        <td><input type="password" name="password" id="password"></td>
                     </tr>
                     <tr>
                     </tr>
                     <tr>
                         <td>
-                            <input class="btn btn-default" value="Login" type="submit" id="login" onclick="redirect();"> </td>
+                            <input class="btn btn-default" value="Login" type="submit" id="login"> </td>
                     </form>
                         <td><input class="btn btn-default" value="Sign Up" type="button" id="signUp" align="right"></td>
                     </tr>
@@ -61,5 +51,28 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#login").click(function(event){
+          event.preventDefault();
+          if (document.getElementById("email").value=="taylor@swift.com" && document.getElementById("password").value=="6813rocks"){
+            window.location = "choreoHome.html";
+          }
+          else if (document.getElementById("email").value=="selena@gomez.com" && document.getElementById("password").value=="6813rocks"){
+            window.location = "danceHome.html";
+          }
+          else{
+            var node = document.createElement("div");
+            var warning = document.createTextNode("Invalid email/password combo, please try again.");
+            node.appendChild(warning);
+            node.style.color="red";
+            node.style.fontSize="14px";
+            node.style.marginTop="5px";
+            document.getElementById("mainColumn").appendChild(node);
+          }
+            });
+    });
+</script>
 
 </body>

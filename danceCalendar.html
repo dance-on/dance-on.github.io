@@ -88,7 +88,7 @@
               <button onclick="location.href ='index.html';" id="logout" class="logout"> Log Out</button>
     </nav>
 
-  <div class="container">>
+  <div class="container">
     <div class="col-md-3">
       <div class="sidebar">
         <div class="profile-userpic">
@@ -121,19 +121,8 @@
         </div>
       </div>
     </div>
-    <div class="col-md-9">
-
-<!--       <nav id="navbar" class="navbar-horiz navbar-collapse navbar-light">
-        <ul>
-          <li class="nav-item" role="presentation"><a href="#">About</a></li>
-          <li class="nav-item" role="presentation"><a href="danceVideo.html">Video</a></li>
-          <li class="nav-item" role="presentation"><a href="#">Staging</a></li>
-          <li class="nav-item" role="presentation"  class="active"><a href="#">Calendar</a></li>
-          <li class="nav-item" role="presentation"><a href="#">Forum</a></li>
-        </ul>
-      </nav> -->
-
-<div class="row" id="row_for_subnav">
+  <div class="col-md-9" >
+    <div class="row" id="row_for_subnav">
         <div id="danceName" contenteditable="true">
             <style scoped>
               #example-one { margin-bottom: 10px; }
@@ -153,7 +142,7 @@
            </div>
 
 
-      <h1 class="title text-center"> April 2017 </h1>
+      <h1 id="eventMonth" class="title text-center"> ◀︎ &nbsp; April 2017 &nbsp; ▶︎ </h1>
       <div class="calendar" data-toggle="calendar">
         <div class="row">
           <div class="col-xs-12 calendar-day calendar-no-current-month">
@@ -187,27 +176,6 @@
           </div>
           <div class="col-xs-12 calendar-day">
             <time datetime="2014-07-08">08</time>
-                    <div class="events">
-              <div class="event">
-                <h4>Bad Blood Rehearsal</h4>
-                <div class="desc">
-                  <p>Take a Break and enjoy Live dance and Art from Eries own local Talent</p>
-                  <p>Support for this program is provided in part from an Erie Arts & Culture Project Grant, made possible by community contributions to the Combined Arts & Cultural Campaign and the Erie Arts Endowment.</p>
-                </div>
-                <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> State St and Rt 5, Erie, Pa.</div>
-                <div class="datetime"> <span class="glyphicon glyphicon-time"></span> 12:00am - 1:00pm</div>
-                <div class="attending">
-                  <img src="http://api.randomuser.me/portraits/women/54.jpg" />
-                  <img src="http://api.randomuser.me/portraits/men/27.jpg" />
-                  <img src="http://api.randomuser.me/portraits/men/61.jpg" />
-                </div>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="134" style="width: 4.477%;">
-                    <span class="sr-only">4.477% Filled</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div class="col-xs-12 calendar-day">
             <time datetime="2014-07-09">09</time>
@@ -236,12 +204,13 @@
             <time datetime="2014-07-16">16</time>
           </div>
           <div class="col-xs-12 calendar-day">
-            <time datetime="2014-07-17">17</time>>
+            <time datetime="2014-07-17">17</time>
           </div>
           <div class="col-xs-12 calendar-day">
             <time datetime="2014-07-18">18</time>
           </div>
           <div class="col-xs-12 calendar-day">
+            <h6 class="event">● Rehersal Today</h6>
             <time datetime="2014-07-19">19</time>
           </div>
         </div>
@@ -270,6 +239,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 calendar-day">
+            <h6 class="event">● Rehersal Today</h6>
             <time datetime="2014-07-27">27</time>
           </div>
           <div class="col-xs-12 calendar-day">
@@ -292,9 +262,7 @@
           </div>
         </div>
       </div>
-
-  
-  </div><!-- /.container -->
+  </div>
 
 
     <!-- Bootstrap core JavaScript

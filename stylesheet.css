@@ -5,9 +5,9 @@ Flat colors...
 http://www.flatuicolorpicker.com/category/all
 
 #93a3b5 ugly grey
-#5a7391 dark grey (Taylor Swift)
+#16a085 dark grey (Taylor Swift)
 #7CDBD5 seafoam green (side bar)
-#004E5A dark seafoam green (top bar)
+#16a085 dark seafoam green (top bar)
 #FD8F94 salmon pink
 */
 
@@ -21,16 +21,50 @@ http://www.flatuicolorpicker.com/category/all
   margin: auto;
 }
 
-
 #login{
   width: 110px;
-  margin-right: 20px;
 }
+
+#login:hover{
+      color:white;
+      background:red;
+      animation:myfirst 5s;
+      -moz-animation:myfirst 5s infinite; /* Firefox */
+      -webkit-animation:myfirst 5s infinite; /* Safari and Chrome */
+      }
+        @-webkit-keyframes myfirst /* Safari and Chrome */
+    {
+    0%    {background:#16a085;}
+    20%   {background:#2980b9;}
+    40%   {background:#8e44ad;}
+    60%   {background:#c0392b;}
+    80%   {background:#f1c40f;}
+    100%  {background:#16a085;}
+    }
+
+
+
 #signUp{
   width: 110px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left:20px;
 }
+
+#signUp:hover{
+      color:white;
+      background:red;
+      animation:myfirst 5s;
+      -moz-animation:myfirst 5s infinite; /* Firefox */
+      -webkit-animation:myfirst 5s infinite; /* Safari and Chrome */
+      }
+        @-webkit-keyframes myfirst /* Safari and Chrome */
+    {
+    0%    {background:#16a085;}
+    20%   {background:#2980b9;}
+    40%   {background:#8e44ad;}
+    60%   {background:#c0392b;}
+    80%   {background:#f1c40f;}
+    100%  {background:#16a085;}
+    }
 
   /*HOME*/
 tr {
@@ -434,7 +468,7 @@ h2{
         border: 1px solid rgb(235, 235, 235);
         border-right-width: 0px;
         border-bottom-width: 0px;
-        min-height: 95px;
+        min-height: 75px;
     }
     [data-toggle="calendar"] > .row > .calendar-day.calendar-no-current-month {
         color: rgb(200, 200, 200);
@@ -445,6 +479,18 @@ h2{
 
     [data-toggle="calendar"] > .row:last-child > .calendar-day {
         border-bottom-width: 1px;
+    }
+
+    .event{
+      color:#16a085;
+      font-weight: bold;
+    }
+
+    #addEvent{
+      float:left;
+      margin-top:15px;
+      margin-left:25px;
+      margin-right:-150px;
     }
 
     .calendar-day > time {
@@ -605,14 +651,11 @@ h2{
 }
 
 #newStaging{
-  margin: 5px;
-  padding: 7px;
-  margin-left: 15px;
+  margin-left: 55px;
   margin-top: 15px;
 }
 
 #stagings{
-  margin-top: 75px;
   padding-top:30px;
 }
 
