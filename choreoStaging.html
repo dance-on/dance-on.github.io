@@ -84,16 +84,17 @@
     		activeStaging = numStagings;
     		var ul = document.getElementById("stagingList");
     		var li = document.createElement("li");
+        $(li).css({'cursor':'default'});
     		var div = document.createElement("div");
-    		$(div).css({'height': '150', 'width': '200'});
+    		$(div).css({'height': '150', 'width': '200','margin-top':'5px','cursor':'default'});
     		li.appendChild(div);
     		div.id = "staging" + numStagings;
     		ul.appendChild(li);
 
     		$("#" + div.id).css({"border-style": "solid"});
-        $("#" + div.id).css({"border-color": "#cfd2d6"});
+        $("#" + div.id).css({"border-color": "#7f8c8d"});
     		for (i = 1; i < numStagings; i++) {
-    			$("#staging" + i).css({"border-color": "#cfd2d6"});
+    			$("#staging" + i).css({"border-color": "#bdc3c7"});
     		}
     		$("#currentStaging").empty();
     	});
@@ -113,6 +114,7 @@
     		var initials = document.getElementById('name_tag').value;
     		initialsToID[initials] = numDancers + '-tag';
     		var div = document.createElement("div");
+        div.style.color="white";
     		div.id = numDancers + '-tag';
     		document.getElementById("currentStaging").appendChild(div);
     		document.getElementById(numDancers + '-tag').innerHTML = initials;
@@ -126,7 +128,7 @@
     		image.height = 40;
 
     		document.getElementById("currentStaging").appendChild(image);
-    		$(image).css({'position': 'absolute', 'top': '0px', 'left': '0px'});
+    		$(image).css({'position': 'absolute', 'top': '0px', 'left': '0px', 'cursor':'pointer'});
 
     		$(image).mousedown(function(evt){
     			evt.preventDefault();
@@ -250,12 +252,12 @@
      </div>
       <div id="stagings">
       	<ul id="stagingList">
-      		<li>
-            <div id="staging1" style="border-width:2px; color:#cfd2d6; width:200px; height:150px"></div>
+      		<li style="cursor:default">
+            <div id="staging1" style="border-width:3px; color:#7f8c8d; width:200px; height:150px; cursor:default"></div>
           </li>
         </ul>
 <!--         <canvas id="currentStaging" width="600" height="450" style="position:absolute; left:300px; top:70px"></canvas> -->
-        <div id="currentStaging" style="border-width:2px; color:#cfd2d6; position:absolute; left:300px; top:97px; height:420px; width:600px">
+        <div id="currentStaging" style="border-width:3px; color:#7f8c8d; position:absolute; left:300px; top:97px; height:420px; width:600px">
         </div>
         
         <div id="currentStagingLabel" width="600px" height="40px" style="position:absolute;left:300px; top:530px">

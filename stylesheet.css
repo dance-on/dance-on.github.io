@@ -1,14 +1,10 @@
-
-
 /*COLORS
-Flat colors...
 http://www.flatuicolorpicker.com/category/all
-
-#93a3b5 ugly grey
-#16a085 dark grey (Taylor Swift)
 #7CDBD5 seafoam green (side bar)
 #16a085 dark seafoam green (top bar)
 #FD8F94 salmon pink
+#7f8c8d dark gray
+#bdc3c7 light grey
 */
 
 /*LOGIN*/
@@ -42,8 +38,6 @@ http://www.flatuicolorpicker.com/category/all
     100%  {background:#16a085;}
     }
 
-
-
 #signUp{
   width: 110px;
   margin-left:20px;
@@ -66,7 +60,7 @@ http://www.flatuicolorpicker.com/category/all
     100%  {background:#16a085;}
     }
 
-  /*HOME*/
+/*HOME*/
 tr {
 	height: 20px;
 	width: 100px;
@@ -310,6 +304,8 @@ html, body, .col-md-3{
   cursor:pointer;
   padding: 5px;
 }
+
+div[contenteditable="true"]:hover {outline: 2px dashed #0090D2; }
 
 .sidebar-nav .dropdown-menu {
     position: relative;
@@ -712,7 +708,4 @@ h2{
   float: left;
 }
 
-/*.form-group{
-  margin:10px;
-}*/
 /*END FORUM*/
