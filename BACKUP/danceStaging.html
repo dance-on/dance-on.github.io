@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?">
+
+    <title>Dance On</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <script>
+      var currentSelected = "staging1";
+      $(document).ready(function() {
+        var canvas1 = document.getElementById("staging1");
+        $("#staging1").css({"border-style": "solid"});
+        var ctx1 = canvas1.getContext("2d");
+        ctx1.beginPath();
+        ctx1.arc(100, 75, 5, 0, 2*Math.PI);
+        ctx1.fillStyle = "#ef3e36";
+        ctx1.fill();
+
+        ctx1.beginPath();
+        ctx1.arc(80, 75, 5, 0, 2*Math.PI);
+        ctx1.fillStyle = "#0f75bc";
+        ctx1.fill();
+
+        ctx1.beginPath();
+        ctx1.arc(120, 75, 5, 0, 2*Math.PI);
+        ctx1.strokeStyle = "#0b9444";
+        ctx1.fillStyle = "#0b9444";
+        ctx1.fill();
+        ctx1.stroke();
+
+        var canvas2 = document.getElementById("staging2");
+        $("#staging2").css({"border-style": "solid", "border-color": "#cfd2d6"});
+        var ctx2 = canvas2.getContext("2d");
+        ctx2.beginPath();
+        ctx2.arc(100, 75, 5, 0, 2*Math.PI);
+        ctx2.fillStyle = "#ef3e36";
+        ctx2.fill();
+
+        ctx2.beginPath();
+        ctx2.arc(85, 60, 5, 0, 2*Math.PI);
+        ctx2.fillStyle = "#0f75bc";
+        ctx2.fill();
+
+        ctx2.beginPath();
+        ctx2.arc(115, 60, 5, 0, 2*Math.PI);
+        ctx2.strokeStyle = "#0b9444";
+        ctx2.fillStyle = "#0b9444";
+        ctx2.fill();
+        ctx2.stroke();
+
+        $("#currentStaging").css({"border-style": "solid"});
+        var image1 = document.createElement("img");
+        var color1 = "red";
+        image1.id = 'dot1';
+        image1.src = 'images/' + color1 + '_circle.png';
+        image1.width = 40;
+        image1.height = 40;
+        document.getElementById("currentStaging").appendChild(image1);
+        $(image1).css({'position': 'absolute', 'top': '190px', 'left': '275px', 'cursor':'pointer'});
+        // $(image1).click(function(evt) {
+        //   console.log("check 1");
+        //   var popup = document.getElementById("popup1");
+        //   console.log("popup: " + popup);
+        //   popup.classList.toggle("show");
+        // });
+        
+
+        var initials1 = "TS";
+        var div1 = document.createElement("div");
+        div1.style.color="white";
+        div1.id = 'dancer1';
+        // div1.class = 'popup';
+        
+        document.getElementById("currentStaging").appendChild(div1);
+        
+        // console.log(document.getElementById('popup1'));
+        
+        // console.log(document.getElementById('popup1').id);
+        // console.log(document.getElementById('popup1').innerHTML);
+
+        document.getElementById('dancer1').innerHTML = initials1;
+        // console.log(document.getElementById('popup1').id);
+        $(div1).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '190px', 'left': '275px'});
+
+        // var spanDiv1 = document.createElement("div");
+        // spanDiv1.id = 'spanDiv1';
+        // spanDiv1.class = 'popup';
+        // var span1 = document.createElement("span");
+        // span1.class = "popupText";
+        // span1.id = "popup1";
+        // document.getElementById("currentStaging").appendChild(spanDiv1);
+        // document.getElementById("dancer1").appendChild(span1);
+        // document.getElementById("popup1").innerHTML = "Taylor Swift";
+        // $(spanDiv1).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '195px', 'left': '280px'});
+        
+
+        var image2 = document.createElement("img");
+        var color2 = "blue";
+        image2.id = 'dot2';
+        image2.src = 'images/' + color2 + '_circle.png';
+        image2.width = 40;
+        image2.height = 40;
+        document.getElementById("currentStaging").appendChild(image2);
+        $(image2).css({'position': 'absolute', 'top': '190px', 'left': '200px', 'cursor':'pointer'});
+
+        var initials2 = "KP";
+        var div2 = document.createElement("div");
+        div2.style.color="white";
+        div2.id = 'dancer2';
+        document.getElementById("currentStaging").appendChild(div2);
+        document.getElementById('dancer2').innerHTML = initials2;
+        $(div2).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '190px', 'left': '200px'});
+
+        var image3 = document.createElement("img");
+        var color3 = "green";
+        image3.id = 'dot3';
+        image3.src = 'images/' + color3 + '_circle.png';
+        image3.width = 40;
+        image3.height = 40;
+        document.getElementById("currentStaging").appendChild(image3);
+        $(image3).css({'position': 'absolute', 'top': '190px', 'left': '350px', 'cursor':'pointer'});
+
+        var initials3 = "SG";
+        var div3 = document.createElement("div");
+        div3.style.color="white";
+        div3.id = 'dancer3';
+        document.getElementById("currentStaging").appendChild(div3);
+        document.getElementById('dancer3').innerHTML = initials3;
+        $(div3).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '190px', 'left': '350px'});
+      });
+
+    	var currentOpen = false;
+    	$(document).on('click', "#currentDances", function(evt) {
+    		if (!currentOpen) {
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Bad Blood"));
+    			li1.id = "badBlood";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Shake It Off"))
+    			li2.id = 'shakeItOff';
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("currentDances").appendChild(ul);
+    			currentOpen = true;
+    		} else {
+    			$("#badBlood").remove();
+    			$("#shakeItOff").remove();
+    			currentOpen = false;
+    		}
+    		
+    	});
+
+    	var previousOpen = false;
+    	$(document).on('click', "#previousDances", function(evt) {
+    		console.log(previousOpen);
+    		if (!previousOpen) {
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Fifteen"));
+    			li1.id = "fifteen";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Blank Space"))
+    			li2.id = "blankSpace";
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("previousDances").appendChild(ul);
+    			previousOpen = true;
+    		} else {
+    			console.log("check");
+    			$("#fifteen").remove();
+    			$("#blankSpace").remove();
+    			previousOpen = false;
+    		}
+    	});
+
+      function drawGrid() {
+        var table = document.createElement('table');
+        table.id = "gridTable";
+        table.border = 1;
+        document.getElementById('currentStaging').appendChild(table);
+        $(table).css({'width': '598px', 'height': '418px', 'position': 'absolute', 'left': '-2px', 'top': '-2px', 'z-index': '-1'});
+        var tr1 = document.createElement('tr');
+        tr1.id = 'tr1';
+        document.getElementById('gridTable').appendChild(tr1);
+
+        var tr2 = document.createElement('tr');
+        tr2.id = 'tr2';
+        document.getElementById('gridTable').appendChild(tr2);
+
+        var tr3 = document.createElement('tr');
+        tr3.id = 'tr3';
+        document.getElementById('gridTable').appendChild(tr3);
+
+        var tr4 = document.createElement('tr');
+        tr4.id = 'tr4';
+        document.getElementById('gridTable').appendChild(tr4);
+
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        var td4 = document.createElement('td');
+        document.getElementById('tr1').appendChild(td1);
+        document.getElementById('tr1').appendChild(td2);
+        document.getElementById('tr1').appendChild(td3);
+        document.getElementById('tr1').appendChild(td4);
+
+        var td5 = document.createElement('td');
+        var td6 = document.createElement('td');
+        var td7 = document.createElement('td');
+        var td8 = document.createElement('td');
+        document.getElementById('tr2').appendChild(td5);
+        document.getElementById('tr2').appendChild(td6);
+        document.getElementById('tr2').appendChild(td7);
+        document.getElementById('tr2').appendChild(td8);
+
+        var td9 = document.createElement('td');
+        var td10 = document.createElement('td');
+        var td11 = document.createElement('td');
+        var td12 = document.createElement('td');
+        document.getElementById('tr3').appendChild(td9);
+        document.getElementById('tr3').appendChild(td10);
+        document.getElementById('tr3').appendChild(td11);
+        document.getElementById('tr3').appendChild(td12);
+
+        var td13 = document.createElement('td');
+        var td14 = document.createElement('td');
+        var td15 = document.createElement('td');
+        var td16 = document.createElement('td');
+        document.getElementById('tr4').appendChild(td13);
+        document.getElementById('tr4').appendChild(td14);
+        document.getElementById('tr4').appendChild(td15);
+        document.getElementById('tr4').appendChild(td16);
+      }
+
+      $(document).on('click', '#staging1', function(evt) {
+        if (currentSelected == "staging2") {
+          $("#staging1").css({"border-color": "black"});
+          $("#staging2").css({"border-color": "#cfd2d6"})
+
+          $("#currentStaging").empty();
+          $("#currentStaging").css({"border-style": "solid"});
+          var image1 = document.createElement("img");
+          var color1 = "red";
+          image1.id = 'dot1';
+          image1.src = 'images/' + color1 + '_circle.png';
+          image1.width = 40;
+          image1.height = 40;
+          document.getElementById("currentStaging").appendChild(image1);
+          $(image1).css({'position': 'absolute', 'top': '190px', 'left': '275px', 'cursor':'pointer'});
+          
+
+          var initials1 = "TS";
+          var div1 = document.createElement("div");
+          div1.style.color="white";
+          div1.id = 'dancer1';
+          document.getElementById("currentStaging").appendChild(div1);
+          document.getElementById('dancer1').innerHTML = initials1;
+          $(div1).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '190px', 'left': '275px'});
+          
+
+          var image2 = document.createElement("img");
+          var color2 = "blue";
+          image2.id = 'dot2';
+          image2.src = 'images/' + color2 + '_circle.png';
+          image2.width = 40;
+          image2.height = 40;
+          document.getElementById("currentStaging").appendChild(image2);
+          $(image2).css({'position': 'absolute', 'top': '190px', 'left': '200px', 'cursor':'pointer'});
+
+          var initials2 = "KP";
+          var div2 = document.createElement("div");
+          div2.style.color="white";
+          div2.id = 'dancer2';
+          document.getElementById("currentStaging").appendChild(div2);
+          document.getElementById('dancer2').innerHTML = initials2;
+          $(div2).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '190px', 'left': '200px'});
+
+          var image3 = document.createElement("img");
+          var color3 = "green";
+          image3.id = 'dot3';
+          image3.src = 'images/' + color3 + '_circle.png';
+          image3.width = 40;
+          image3.height = 40;
+          document.getElementById("currentStaging").appendChild(image3);
+          $(image3).css({'position': 'absolute', 'top': '190px', 'left': '350px', 'cursor':'pointer'});
+
+          var initials3 = "SG";
+          var div3 = document.createElement("div");
+          div3.style.color="white";
+          div3.id = 'dancer3';
+          document.getElementById("currentStaging").appendChild(div3);
+          document.getElementById('dancer3').innerHTML = initials3;
+          $(div3).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '190px', 'left': '350px'});
+
+          if (grid) {
+            drawGrid();
+          }
+        }
+
+        currentSelected = "staging1";
+        document.getElementById("currentStagingLabel").innerHTML = "Staging 1";
+        document.getElementById("currentStagingTimeLabel").innerHTML = "0:00 - 1:30";
+      });
+
+      $(document).on('click', '#staging2', function(evt) {
+        if (currentSelected == "staging1") {
+
+          $("#staging1").css({"border-color": "#cfd2d6"});
+          $("#staging2").css({"border-color": "black"});
+
+          $("#currentStaging").empty();
+          $("#currentStaging").css({"border-style": "solid"});
+          var image1 = document.createElement("img");
+          var color1 = "red";
+          image1.id = 'dot1';
+          image1.src = 'images/' + color1 + '_circle.png';
+          image1.width = 40;
+          image1.height = 40;
+          document.getElementById("currentStaging").appendChild(image1);
+          $(image1).css({'position': 'absolute', 'top': '190px', 'left': '275px', 'cursor':'pointer'});
+          
+
+          var initials1 = "TS";
+          var div1 = document.createElement("div");
+          div1.style.color="white";
+          div1.id = 'dancer1';
+          document.getElementById("currentStaging").appendChild(div1);
+          document.getElementById('dancer1').innerHTML = initials1;
+          $(div1).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '190px', 'left': '275px'});
+          
+
+          var image2 = document.createElement("img");
+          var color2 = "blue";
+          image2.id = 'dot2';
+          image2.src = 'images/' + color2 + '_circle.png';
+          image2.width = 40;
+          image2.height = 40;
+          document.getElementById("currentStaging").appendChild(image2);
+          $(image2).css({'position': 'absolute', 'top': '135px', 'left': '200px', 'cursor':'pointer'});
+
+          var initials2 = "KP";
+          var div2 = document.createElement("div");
+          div2.style.color="white";
+          div2.id = 'dancer2';
+          document.getElementById("currentStaging").appendChild(div2);
+          document.getElementById('dancer2').innerHTML = initials2;
+          $(div2).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '135px', 'left': '200px'});
+
+          var image3 = document.createElement("img");
+          var color3 = "green";
+          image3.id = 'dot3';
+          image3.src = 'images/' + color3 + '_circle.png';
+          image3.width = 40;
+          image3.height = 40;
+          document.getElementById("currentStaging").appendChild(image3);
+          $(image3).css({'position': 'absolute', 'top': '135px', 'left': '350px', 'cursor':'pointer'});
+
+          var initials3 = "SG";
+          var div3 = document.createElement("div");
+          div3.style.color="white";
+          div3.id = 'dancer3';
+          document.getElementById("currentStaging").appendChild(div3);
+          document.getElementById('dancer3').innerHTML = initials3;
+          $(div3).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '135px', 'left': '350px'});
+
+          if (grid) {
+            drawGrid();
+          }
+        }
+        currentSelected = "staging2";
+        document.getElementById("currentStagingLabel").innerHTML = "Staging 2";
+        document.getElementById("currentStagingTimeLabel").innerHTML = "1:30 - 2:45";
+      });
+
+      var grid = false;
+      $(document).on('click', '#grid', function(evt) {
+        if (grid) {
+          grid = false;
+          var gridObject = document.getElementById('grid');
+          gridObject.value = 'Show Grid';
+          var table = document.getElementById('gridTable');
+          table.parentNode.removeChild(table);
+        } else {
+          grid = true;
+          var gridObject = document.getElementById('grid');
+          gridObject.value = 'Hide Grid';
+          drawGrid();
+        }
+      });
+    </script>
+
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="navbar-header">
+              <a id="logo" class="navbar-brand" href="danceHome.html"><img style="height:40px" src="images/Logo.png"></a>
+            </div>
+              <button onclick="location.href ='index.html';" id="logout" class="logout"> Log Out</button>
+    </nav>
+
+  <div class="container">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <div class="profile-userpic">
+          <img src="images/SelenaGomez.png" class="img-responsive" alt="" height="150" width="150">
+        </div>
+        <div class="profile-user">
+          <div class="profile-username">
+            Selena Gomez
+          </div>
+          <h6 class="profile-usertitle">Dancer</h6>
+        </div>
+
+        <div class="profile-usermenu">
+          <ul class="nav sidebar-nav">
+            <li class="dropdown" id="currentDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+                 <!--    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">True Colors</a></li>
+                      <li><a href="#">Don't Stop Believing</a></li>
+                    </ul> -->
+            </li>
+            <li class="dropdown" id="previousDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+                    <!-- <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Rumor Has It</a></li>
+                      <li><a href="#">Bring It On</a></li>
+                    </ul> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row" id="row_for_subnav">
+        <div id="danceName" style="cursor:default">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+            </style>
+            <i class="em em-syringe"></i>Bad Blood
+          </div>
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li class="nav-item" role="presentation"><a href="danceAbout.html">About</a></li>
+          <li class="nav-item" role="presentation"><a href="danceVideo.html">Video</a></li>
+          <li style="background-color:#eeeeee" class="nav-item" role="presentation"><a href="danceStaging.html">Staging</a></li>
+          <li class="nav-item" role="presentation" class="active"><a href="danceCalendar.html">Calendar</a></li>
+          <li class="nav-item" role="presentation"><a href="danceForum.html">Forum</a></li>
+                </ul>
+           </div>
+
+      <div id="stagings">
+        <ul id="stagingList">
+          <li>
+            <canvas id="staging1" width="200" height="150"></canvas>
+          </li>
+          <li>
+            <canvas id="staging2" width="200" height="150"></canvas>
+          </li>
+        </ul>
+        <!-- canvas id="currentStaging" width="600" height="400" style="position:absolute; left:300px; top:120px"></canvas> -->
+        <div id="currentStaging" style="border-width:3px; color:#7f8c8d; position:absolute; left:300px; top:97px; height:420px; width:600px">
+        </div>
+        <div id="currentStagingLabel" width="600" height="40" style="position:absolute;left:300px; top:530px">Staging 1</div>
+        <input id="grid" value="Show Grid" type="button" class="btn" style="position:absolute; left:810px; top:530px">
+        <div id="currentStagingTimeLabel" width="600" height="40" style="position:absolute;left:300px; top:560px">0:00 - 1:30</div>
+       </div>
+    </div>
+
+
+  </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
+
+
+
+
+
+
+
+

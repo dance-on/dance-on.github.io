@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Metadata -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Forgot your moves? Just Dance On!">
-    <meta name="author" content="Amy Liu, Luana Lopes Lara, Cristina Martinez-Acha, Or Oppenheimer">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?">
 
     <title>Dance On</title>
@@ -20,12 +20,11 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Custom Stylesheets -->
-    <link rel="stylesheet" href="stylesheet.css">
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
-    <!-- Custom Scripts -->
-<script>
+        <script>
       var currentOpen = false;
       $(document).on('click', "#currentDances", function(evt) {
         if (!currentOpen) {
@@ -71,60 +70,69 @@
           $("#shakeItOff").remove();
           previousOpen = false;
         }
-        });
+    		 });
                 // Redirects to static badBlood About Page-
         $(document).on('click', "#badBlood", function(evt) {
-            window.location.href="danceAboutbadBlood.html";
+            window.location.href="choreoAboutbadBlood.html";
         });
 
         // Redirects to static badBlood About Page-
         $(document).on('click', "#shakeItOff", function(evt) {
-            window.location.href="danceAboutshakeItOff.html";
+            window.location.href="choreoAboutshakeItOff.html";
         });
 
         // Redirects to static badBlood About Page-
         $(document).on('click', "#fifteen", function(evt) {
-            window.location.href="danceAboutfifteen.html";
+            window.location.href="choreoAboutfifteen.html";
         });
 
         // Redirects to static badBlood About Page-
         $(document).on('click', "#blankSpace", function(evt) {
-            window.location.href="danceAboutblankSpace.html";
+            window.location.href="choreoAboutblankSpace.html";
         });
 
         $(document).on('click', "#submitDance", function(evt) {
-            window.location.href="danceAboutemptyDance.html";
+            window.location.href="choreoAboutemptyDance.html";
         });
 
         function chooseFile() {
             $("#fileInput").click();
         }
-
+        
+ 
     </script>
+
+
   </head>
 
   <body>
+
     <nav class="navbar navbar-default navbar-fixed-top ">
         <div class="navbar-header">
-              <a id="logo" class="navbar-brand" href="danceHome.html"><img style="height:40px" src="images/Logo.png"></a>
+              <a id="logo" class="navbar-brand" href="choreoHome.html"><img style="height:40px" src="images/Logo.png"></a>
             </div>
               <button onclick="location.href ='index.html';" id="logout" class="logout"> Log Out</button>
     </nav>
 
   <div class="container">
+
+    <!--   <div class="starter-template">
+        <h1>Dances</h1>
+        <p class="lead"></p>
+      </div> -->
+
     <div class="col-md-3">
+<!--       <div id="navbar" class="collapse navbar-collapse"> -->
       <div class="sidebar">
         <div class="profile-userpic">
-          <img src="images/SelenaGomez.png" class="img-responsive" alt="" height="150" width="150">
+          <img src="images/TaylorSwift.png" class="img-responsive" alt="" height="150" width="150">
         </div>
         <div class="profile-user">
-          <div class="profile-username" contenteditable="false" style="cursor:default">
-            Selena Gomez
+          <div class="profile-username">
+            Taylor Swift
           </div>
-          <h6 class="profile-usertitle">Dancer</h6>
+          <h6 class="profile-usertitle">Choreographer</h6>
         </div>
-
-        
 
         <div class="profile-usermenu">
           <ul class="nav sidebar-nav">
@@ -139,17 +147,115 @@
         </div>
       </div>
     </div>
+    <div class="col-md-9">
+      <div class="row" id="row_for_subnav">
+        <div id="danceName" contenteditable="true">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+              /*[contenteditable="true"] { padding: 10px; outline: 2px dashed #CCC; }*/
+/*              [contenteditable="true"]:hover {outline: 2px dashed #0090D2; }*/
+            </style>
+            <i class="em em-syringe"></i>Bad Blood
+          </div>
 
-    <div class="col-md-9"></div>
-        <div class="introduction">
-        <i class="em em-dancers"></i>
-        <h3 id="quoteheader">Inspirational Dance Quote of the Day</h3>
-        <img style="height:40px" src="images/divider.png">
-        <h4 id="quote"></h4>
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li class="nav-item" role="presentation"><a href="choreoAboutbadBlood.html">About</a></li>
+          <li style="background-color:#eeeeee" class="nav-item" role="presentation"><a href="choreoVideobadBlood.html">Video</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoStagingbadBlood.html">Staging</a></li>
+          <li class="nav-item" role="presentation" class="active"><a href="choreoCalendarbadBlood.html">Calendar</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoForumbadBlood.html">Forum</a></li>
+                </ul>
+           </div>
+
+    <div class="col-md-9">
+      <div class="form-inline">
+        <div class="form-group">
+          <h2 contenteditable="true">Slow tempo part#1:</h2>
         </div>
+        <div class="form-group">
+          <button id="delete_vid" class="btn" data-toggle="modal" data-target="#deleteWarningModal">Delete Video</button>
+        </div>
+
+     </div>
+
+      <div class="embed-responsive embed-responsive-16by9" id="dance_video">
+       <iframe class="embed-responsive-item" width="320" height="240" src="https://www.youtube.com/embed/QcIy9NiNbmo" frameborder="0" allowfullscreen></iframe>
+       </div>
     </div>
 
-<!-- Modal Dance-->
+    <div class="dropdown col-md-9">
+      
+      <div class="more_vids_div dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="more_videos">All videos
+      <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Explaining tricky steps</a></li>
+            <li><a href="#">Slow tempo part#2</a></li>
+            <li><a href="#">Slow tempo part#1</a></li>
+          </ul>
+      </div>
+
+      <button class="upload_vid_div btn" data-toggle="modal" data-target="#newVideoModal">+ Upload new video</button>
+
+      </div>
+
+    </div>
+
+  </div><!-- /.container -->
+
+
+  <!-- New Video Dance-->
+  <div class="modal fade" id="newVideoModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Uploading a new video</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Video Name:</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="'Slow-tempo moves for chorus'">
+            </div>
+            <div class="form-group">
+              <input id="input-1" type="file" class="file">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submitDance" data-dismiss="modal">Upload</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <!-- Warning modal-->
+  <div class="modal fade" id="deleteWarningModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+    <div class="modal-header">
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+         <h3>Warning!</h3>
+    </div>
+    <div class="modal-body">
+        <p>You are about to delete this video.</p>
+        <p>Do you wish to proceed?</p>
+    </div>
+    <div class="modal-footer">
+      <button href="#" data-dismiss="modal" class="yesno">Yes</button>
+      <button href="#" data-dismiss="modal" class="yesno">No</button>
+    </div>
+  </div>
+</div>
+</div>
+
+  <!-- Modal Dance-->
   <div class="modal fade" id="danceModal" role="dialog">
     <div class="modal-dialog">
     
@@ -184,31 +290,13 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
     <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-
-      <script type="text/javascript">
-    console.log("fuck");
-    var quotearray = new Array();
-    var num = 0;
-
-    quotearray[num++] = '"Dances have a second and third life. You feel they are never ready. <br><br> They always have a chance for another life." <br><br> - Mikhail Baryshnikov'
-    quotearray[num++] = '"Finding ballet was like finding this missing piece of myself." <br><br> - Misty Copeland'
-    quotearray[num++] = '"If you stumble, make it part of the dance." <br><br> - Anonymous'
-    quotearray[num++] = '"Practice like you\'ve never won. Perform like you\'ve never lost." <br><br> - Anonymous'
-    quotearray[num++] = '"Dancers are the athletes of god." <br><br> - Albert Einstein'
-
-    var rannum= Math.round(Math.random()*quotearray.length)-1
-    if (rannum<0){
-        rannum=0
-    }
-    document.getElementById('quote').innerHTML=quotearray[rannum];
-    </script>
   </body>
 </html>
+
 
 
 

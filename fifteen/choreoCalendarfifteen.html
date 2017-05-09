@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?">
+
+    <title>Dance On</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+
+        <script>
+      var currentOpen = false;
+      $(document).on('click', "#currentDances", function(evt) {
+        if (!currentOpen) {
+          var ul = document.createElement("ul");
+          var li1 = document.createElement("li");
+          li1.appendChild(document.createTextNode("Bad Blood"));
+          li1.id = "badBlood";
+          var li2 = document.createElement("li");
+          li2.appendChild(document.createTextNode("Blank Space"))
+          li2.id = 'blankSpace';
+
+          ul.appendChild(li1);
+          ul.appendChild(li2);
+          document.getElementById("currentDances").appendChild(ul);
+          currentOpen = true;
+        } else {
+          $("#badBlood").remove();
+          $("#blankSpace").remove();
+          currentOpen = false;
+        }
+        
+      });
+
+      var previousOpen = false;
+      $(document).on('click', "#previousDances", function(evt) {
+        console.log(previousOpen);
+        if (!previousOpen) {
+          var ul = document.createElement("ul");
+          var li1 = document.createElement("li");
+          li1.appendChild(document.createTextNode("Fifteen"));
+          li1.id = "fifteen";
+          var li2 = document.createElement("li");
+          li2.appendChild(document.createTextNode("Shake It Off"))
+          li2.id = "shakeItOff";
+
+          ul.appendChild(li1);
+          ul.appendChild(li2);
+          document.getElementById("previousDances").appendChild(ul);
+          previousOpen = true;
+        } else {
+          console.log("check");
+          $("#fifteen").remove();
+          $("#shakeItOff").remove();
+          previousOpen = false;
+        }
+            
+                    // Redirects to static badBlood About Page-
+        $(document).on('click', "#badBlood", function(evt) {
+            window.location.href="choreoAboutbadBlood.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#shakeItOff", function(evt) {
+            window.location.href="choreoAboutshakeItOff.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#fifteen", function(evt) {
+            window.location.href="choreoAboutfifteen.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#blankSpace", function(evt) {
+            window.location.href="choreoAboutblankSpace.html";
+        });
+
+        $(document).on('click', "#submitDance", function(evt) {
+            window.location.href="choreoAboutemptyDance.html";
+        });
+
+        function chooseFile() {
+            $("#fileInput").click();
+        }
+        
+        });
+    </script>
+
+
+  </head>
+
+  <body>
+
+<nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="navbar-header">
+              <a id="logo" class="navbar-brand" href="choreoHome.html"><img style="height:40px" src="images/Logo.png"></a>
+            </div>
+              <button onclick="location.href ='index.html';" id="logout">Log Out</button>
+</nav>
+
+  <div class="container">
+
+    <!--   <div class="starter-template">
+        <h1>Dances</h1>
+        <p class="lead"></p>
+      </div> -->
+
+    <div class="col-md-3">
+<!--       <div id="navbar" class="collapse navbar-collapse"> -->
+      <div class="sidebar">
+        <div class="profile-userpic">
+          <img src="images/TaylorSwift.png" class="img-responsive" alt="" height="150" width="150">
+        </div>
+        <div class="profile-user">
+          <div class="profile-username">
+            Taylor Swift
+          </div>
+          <h6 class="profile-usertitle">Choreographer</h6>
+        </div>
+
+        <div class="profile-usermenu">
+          <ul class="nav sidebar-nav">
+            <li class="dropdown" id="currentDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+            </li>
+            <li class="dropdown" id="previousDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+            </li>
+            <li><a id="addDance" data-toggle="modal" data-target="#danceModal"><b>+ Add a Dance</b> </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-9">
+      <div class="row" id="row_for_subnav">
+          <div id="danceName" contenteditable="true">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+              /*[contenteditable="true"] { padding: 10px; outline: 2px dashed #CCC; }*/
+/*              [contenteditable="true"]:hover {outline: 2px dashed #0090D2; }*/
+            </style>
+            <i class="em em-birthday"></i>Fifteen
+          </div>
+
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li class="nav-item" role="presentation"><a href="choreoAboutfifteen.html">About</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoVideofifteen.html">Video</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoStagingfifteen.html">Staging</a></li>
+          <li style="background-color:#eeeeee" class="nav-item" role="presentation" class="active"><a href="choreoCalendarfifteen.html">Calendar</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoForumfifteen.html">Forum</a></li>
+                </ul>
+           </div>
+      <input class="btn btn-default" value="Add Event" type="button" id="addEvent" data-toggle="modal" data-target="#myModal3">
+      <h1 id="eventMonth" class="title text-center"> ◀︎ &nbsp; May 2017 &nbsp; ▶︎ </h1>
+      <div class="calendar" data-toggle="calendar">
+        <div class="row">
+          <div class="col-xs-12 calendar-day calendar-no-current-month">
+            <time datetime="2014-06-29">29</time>
+          </div>
+          <div class="col-xs-12 calendar-day calendar-no-current-month">
+            <time datetime="2014-06-30">30</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-01">01</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-02">02</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-03">03</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-04">04</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-05">05</time>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-06">06</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-07">07</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-08">08</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-09">09</time>
+          </div>
+          <div class="col-xs-12 calendar-day" id="today">
+            <time datetime="2014-07-10">10</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-11">11</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-12">12</time>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-13">13</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-14">14</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-15">15</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-16">16</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-17">17</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-18">18</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-19">19</time>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-20">20</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-21">21</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-22">22</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-23">23</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-24">24</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-25">25</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-26">26</time>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-27">27</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-28">28</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-29">29</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-30">30</time>
+          </div>
+          <div class="col-xs-12 calendar-day">
+            <time datetime="2014-07-31">31</time>
+          </div>
+          <div class="col-xs-12 calendar-day calendar-no-current-month">
+            <time datetime="2014-08-01">01</time>
+          </div>
+          <div class="col-xs-12 calendar-day calendar-no-current-month">
+            <time datetime="2014-08-02">02</time>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+  <!-- Modal Add Dancer-->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding a new dancer</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Dancer Initials:</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Enter dancer initials">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Email:</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Enter dancer email">
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submit" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      
+    </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Modal Add Dancer-->
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding a new event</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Event Name</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Ex.'Rehersal Today'">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Event Date</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Ex.'04/17/17'">
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submit" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      
+    </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Dance-->
+  <div class="modal fade" id="danceModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding a new dance</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Dance Name</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Ex.'Bad Blood'">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Type of Dance</label>
+              <select class="form-control" id="dancer_color">
+                <option>Current Dance</option>
+                <option>Previous Dance</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submitDance" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
+
+
+
+
+
+
+

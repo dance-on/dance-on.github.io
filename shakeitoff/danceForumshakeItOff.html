@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Metadata -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Forgot your moves? Just Dance On!">
-    <meta name="author" content="Amy Liu, Luana Lopes Lara, Cristina Martinez-Acha, Or Oppenheimer">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?">
 
     <title>Dance On</title>
@@ -20,12 +20,11 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Custom Stylesheets -->
-    <link rel="stylesheet" href="stylesheet.css">
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
-    <!-- Custom Scripts -->
-<script>
+    <script>
       var currentOpen = false;
       $(document).on('click', "#currentDances", function(evt) {
         if (!currentOpen) {
@@ -99,12 +98,43 @@
         function chooseFile() {
             $("#fileInput").click();
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 48451e22531e0088b175bae5960058809963cb4c
+             $(document).on('click', "#submitQ", function(evt) {
+                // console.log("hi")
+                document.getElementById('exampleTextarea').value='';
+                setTimeout(function(){ 
+                  $("#closeModal").trigger( "click" ); }, 1800);
+             });
+
+          $(document).ready(function () {
+          var unsaved = false;
+
+          $(":input").change(function(){ //trigers change in all input fields including text type
+            console.log("hi")
+              unsaved = true;
+          });
+
+          function unloadPage(){ 
+              if(unsaved){
+                  return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+              }
+          }
+
+          window.onbeforeunload = unloadPage;
+          });
+            
+      
     </script>
+
+
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top ">
+
+<nav class="navbar navbar-default navbar-fixed-top ">
         <div class="navbar-header">
               <a id="logo" class="navbar-brand" href="danceHome.html"><img style="height:40px" src="images/Logo.png"></a>
             </div>
@@ -118,67 +148,125 @@
           <img src="images/SelenaGomez.png" class="img-responsive" alt="" height="150" width="150">
         </div>
         <div class="profile-user">
-          <div class="profile-username" contenteditable="false" style="cursor:default">
+          <div class="profile-username">
             Selena Gomez
           </div>
           <h6 class="profile-usertitle">Dancer</h6>
         </div>
 
-        
-
         <div class="profile-usermenu">
           <ul class="nav sidebar-nav">
             <li class="dropdown" id="currentDances">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+                 <!--    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">True Colors</a></li>
+                      <li><a href="#">Don't Stop Believing</a></li>
+                    </ul> -->
             </li>
             <li class="dropdown" id="previousDances">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+                    <!-- <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Rumor Has It</a></li>
+                      <li><a href="#">Bring It On</a></li>
+                    </ul> -->
             </li>
-            <li><a id="addDance" data-toggle="modal" data-target="#danceModal"><b>+ Add a Dance</b> </a></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="col-md-9"></div>
-        <div class="introduction">
-        <i class="em em-dancers"></i>
-        <h3 id="quoteheader">Inspirational Dance Quote of the Day</h3>
-        <img style="height:40px" src="images/divider.png">
-        <h4 id="quote"></h4>
-        </div>
+    <div class="col-md-9">
+      <div class="row" id="row_for_subnav">
+        <div id="danceName" style="cursor:default">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+            </style>
+            <i class="em em-information_desk_person"></i>Shake It Off
+          </div>
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li class="nav-item" role="presentation"><a href="danceAboutshakeItOff.html">About</a></li>
+          <li class="nav-item" role="presentation"><a href="danceVideoshakeItOff.html">Video</a></li>
+          <li class="nav-item" role="presentation"><a href="danceStagingshakeItOff.html">Staging</a></li>
+          <li class="nav-item" role="presentation" class="active"><a href="danceCalendarshakeItOff.html">Calendar</a></li>
+          <li style="background-color:#eeeeee" class="nav-item" role="presentation"><a href="danceForumshakeItOff.html">Forum</a></li>
+                </ul>
+           </div>
+
+
+                <div class="col-md-9 blogShort">
+
+                      <div class="question">
+                       <img src="images/LilyAldridge.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="40" width="40">
+                       <h1 class="question-text">Lily Aldridge:</h1>
+                       <p>Where do I stand during the chorus?</p>
+                     </div>
+
+                      <div class-"answer">
+                       <img src="images/TaylorSwift.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="40" width="40">
+                       <h1 class="answer-text">Taylor Swift:</h1>
+                     <p> Stand on the left next to Selena. 
+                         </p>
+                      </div>
+
+                     <div id="dateFooter">
+                        <p id="dateText">Updated 80 day ago</p>
+                      </div>
+                     <!-- <a class="btn btn-blog pull-right marginBottom10" href="#3">READ MORE</a>  -->
+                 </div>
+                 
+                  <div class="col-md-9 blogShort">
+                    
+                    <div class="question">
+                    <img src="images/KarlieKloss.png" class="pull-left img-responsive thumb margin10 img-thumbnail" height="40" width="40">
+                     <h1 class="question-text">Karlie Kloss</h1>
+                     <p>Should I enter stage from the left or the right?</p>
+                    </div>
+
+                    <div class-"answer">
+                   <img src="images/TaylorSwift.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="40" width="40">
+                   <h1 class="answer-text">Taylor Swift:</h1>
+                     <p>
+                         You enter from the right
+                         </p>
+                       </div>
+
+                       <div id="dateFooter">
+                        <p id="dateText">Updated 82 days ago</p>
+                      </div>
+                     <!-- <a class="btn btn-blog pull-right marginBottom10" href="#3">READ MORE</a>  -->
+                 </div>
+
+              <div class="col-md-9 blogShort" id="olderQs">
+                <p id="older-qs">Show older questions</p>
+              </div>
+
+
     </div>
 
-<!-- Modal Dance-->
-  <div class="modal fade" id="danceModal" role="dialog">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" href="#myModal">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Adding a new dance</h4>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-              <label>Dance Name</label>
-              <input type="text" class="form-control" id="name_tag" placeholder="Ex.'Bad Blood'">
-            </div>
-            <div class="form-group">
-              <label for="sel1">Type of Dance</label>
-              <select class="form-control" id="dancer_color">
-                <option>Current Dance</option>
-                <option>Previous Dance</option>
-              </select>
-            </div>
+          <button type="button" class="close" data-dismiss="modal" id="closeModal">&times;</button>
+          <h4 class="modal-title">You succesfully posted a question!</h4>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" id="submitDance" data-dismiss="modal">Add</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
       
     </div>
+
+
   </div>
+
+
+
+  </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -189,26 +277,10 @@
     <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-
-      <script type="text/javascript">
-    console.log("fuck");
-    var quotearray = new Array();
-    var num = 0;
-
-    quotearray[num++] = '"Dances have a second and third life. You feel they are never ready. <br><br> They always have a chance for another life." <br><br> - Mikhail Baryshnikov'
-    quotearray[num++] = '"Finding ballet was like finding this missing piece of myself." <br><br> - Misty Copeland'
-    quotearray[num++] = '"If you stumble, make it part of the dance." <br><br> - Anonymous'
-    quotearray[num++] = '"Practice like you\'ve never won. Perform like you\'ve never lost." <br><br> - Anonymous'
-    quotearray[num++] = '"Dancers are the athletes of god." <br><br> - Albert Einstein'
-
-    var rannum= Math.round(Math.random()*quotearray.length)-1
-    if (rannum<0){
-        rannum=0
-    }
-    document.getElementById('quote').innerHTML=quotearray[rannum];
-    </script>
   </body>
 </html>
+
+
 
 
 

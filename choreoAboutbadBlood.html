@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?">
+
+    <title>Dance On</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+
+    <script>
+      $('#myModalSuccess').modal({ show: false})
+
+    	var currentOpen = false;
+    	$(document).on('click', "#currentDances", function(evt) {
+    		if (!currentOpen) {
+          console.log('check if');
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Bad Blood"));
+    			li1.id = "badBlood";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Blank Space"))
+    			li2.id = 'blankSpace';
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("currentDances").appendChild(ul);
+    			currentOpen = true;
+    		} else {
+          console.log('check else');
+    			$("#badBlood").remove();
+    			$("#blankSpace").remove();
+    			currentOpen = false;
+    		}
+      });
+
+      // var currentOpen = false;
+      // $(document).on('click', "#currentDances", function(evt) {
+      //   if (!currentOpen) {
+      //     var ul = document.createElement("ul");
+      //     var li1 = document.createElement("li");
+      //     li1.appendChild(document.createTextNode("Bad Blood"));
+      //     li1.id = "badBlood";
+      //     var li2 = document.createElement("li");
+      //     li2.appendChild(document.createTextNode("Blank Space"))
+      //     li2.id = 'blankSpace';
+
+      //     ul.appendChild(li1);
+      //     ul.appendChild(li2);
+      //     document.getElementById("currentDances").appendChild(ul);
+      //     currentOpen = true;
+      //   } else {
+      //     $("#badBlood").remove();
+      //     $("#blankSpace").remove();
+      //     currentOpen = false;
+      //   }
+        
+      // });
+
+      var previousOpen = false;
+      $(document).on('click', "#previousDances", function(evt) {
+        console.log(previousOpen);
+        if (!previousOpen) {
+          var ul = document.createElement("ul");
+          var li1 = document.createElement("li");
+          li1.appendChild(document.createTextNode("Fifteen"));
+          li1.id = "fifteen";
+          var li2 = document.createElement("li");
+          li2.appendChild(document.createTextNode("Shake It Off"))
+          li2.id = "shakeItOff";
+
+          ul.appendChild(li1);
+          ul.appendChild(li2);
+          document.getElementById("previousDances").appendChild(ul);
+          previousOpen = true;
+        } else {
+          console.log("check");
+          $("#fifteen").remove();
+          $("#shakeItOff").remove();
+          previousOpen = false;
+        }
+    		
+    	});
+
+              // Redirects to static badBlood About Page-
+        $(document).on('click', "#badBlood", function(evt) {
+            window.location.href="choreoAboutbadBlood.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#shakeItOff", function(evt) {
+            window.location.href="choreoAboutshakeItOff.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#fifteen", function(evt) {
+            window.location.href="choreoAboutfifteen.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#blankSpace", function(evt) {
+            window.location.href="choreoAboutblankSpace.html";
+        });
+
+        $(document).on('click', "#submitDance", function(evt) {
+            window.location.href="choreoAboutemptyDance.html";
+        });
+
+        function chooseFile() {
+            $("#fileInput").click();
+        }
+
+      $(document).on('mouseup', "#currentDances", function(evt) {
+      this.blur() });
+
+      $(document).on('mouseup', "#previousDances", function(evt) {
+      this.blur() });
+
+
+      $(document).on('click', "#submitAnnouncement", function(evt) {
+        console.log("hi")
+        document.getElementById('name_tag_announcement').value='';
+      });
+
+
+      // $(document).on('click', "#danceName", function(evt) {
+      //   $('body').click(function(evt){    
+      //     if(evt.target.id == "danceName")
+      //       return;
+
+      //     // console.log("hi")
+      //     $('#myModalSuccess').modal('show');
+      //     setTimeout(function(){ 
+      //       $('#myModalSuccess').modal('hide'); }, 2500);
+
+      //   });
+      // });
+
+
+    </script>
+
+
+  </head>
+
+  <body>
+
+<nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="navbar-header">
+              <a id="logo" class="navbar-brand" href="choreoHome.html"><img style="height:40px" src="images/Logo.png"></a>
+            </div>
+              <button onclick="location.href ='index.html';" id="logout">Log Out</button>
+</nav>
+
+  <div class="container">
+
+    <!--   <div class="starter-template">
+        <h1>Dances</h1>
+        <p class="lead"></p>
+      </div> -->
+
+    <div class="col-md-3">
+<!--       <div id="navbar" class="collapse navbar-collapse"> -->
+      <div class="sidebar">
+        <div class="profile-userpic">
+          <img src="images/TaylorSwift.png" class="img-responsive" alt="" height="150" width="150">
+        </div>
+        <div class="profile-user">
+          <div class="profile-username">
+            Taylor Swift
+          </div>
+          <h6 class="profile-usertitle">Choreographer</h6>
+        </div>
+
+        <div class="profile-usermenu">
+          <ul class="nav sidebar-nav">
+            <li class="dropdown" id="currentDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+            </li>
+            <li class="dropdown" id="previousDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+            </li>
+            <li><a id="addDance" data-toggle="modal" data-target="#danceModal"><b>+ Add a Dance</b> </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row" id="row_for_subnav">
+          <div id="danceName" contenteditable="true">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+              /*[contenteditable="true"] { padding: 10px; outline: 2px dashed #CCC; }*/
+            </style>
+            <i id="danceNameInside" class="em em-syringe"></i>Bad Blood
+          </div>
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li style="background-color:#eeeeee"class="nav-item" role="presentation"><a href="choreoAboutbadBlood.html">About</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoVideobadBlood.html">Video</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoStagingbadBlood.html">Staging</a></li>
+          <li class="nav-item" role="presentation" class="active"><a href="choreoCalendarbadBlood.html">Calendar</a></li>
+          <li class="nav-item" role="presentation"><a href="choreoForumbadBlood.html">Forum</a></li>
+                </ul>
+           </div>
+
+          <div class="col-md-9 about" id="about">
+          <div class="titleAbout"> Announcements </div>
+          <input class="btn2 btn-default" value="Add" type="button" id="add" align="left" data-toggle="modal" data-target="#myModal1">             
+          <p class="bodyAbout" id="older-anc">Show older announcements</p>
+          <div class="titleAbout"> Choreographer </div>
+          <div class="bodyAbout"> Taylor Swift </div>
+          <div class="titleAbout"> Dancers </div>
+          <input class="btn2 btn-default" value="Add" type="button" id="add" align="left" data-toggle="modal" data-target="#myModal2">
+          <div class="titleAbout" id="countdown"> Countdown to next performance </div>
+          <div class="bodyAbout"> 20 days </div>
+          <form action="choreoCalendar.html">
+            <a href="choreoCalendarbadBlood.html"><p class="bodyAbout" id="older-calendar">Change performance date</p></a>
+          </form>
+
+  <!-- Modal Announcement -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding an announcement</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" id="name_tag_announcement" placeholder="Type new announcement">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submitAnnouncement" data-dismiss="modal">Submit</button>
+        </div>
+      </div>
+      
+    </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <!-- Modal Add Dancer-->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding a new dancer</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Dancer Initials:</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Enter dancer initials">
+            </div>
+            <div class="form-group">
+              <label for="sel1">Email:</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Enter dancer email">
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submit" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      
+    </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Dance-->
+  <div class="modal fade" id="danceModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Adding a new dance</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label>Dance Name</label>
+              <input type="text" class="form-control" id="name_tag" placeholder="Ex.'Bad Blood'">
+            </div>
+            <div class="form-group">
+                <label class="radio-inline"><input type="radio" name="optradio">Current Dance</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Previous Dance</label>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="submitDance" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<!-- modal for succesful name change -->
+<div id="myModalSuccess" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <!-- <div class="modal-content alert alert-success"> -->
+      <div class="modal-body alert alert-success ">
+        <p>Success! You changed the dance name.</p>
+      </div>
+    <!-- </div> -->
+
+  </div>
+</div>
+
+  </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
+
+
+
+
+
+
+

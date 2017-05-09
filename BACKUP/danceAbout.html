@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?">
+
+    <title>Dance On</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <script>
+    	var currentOpen = false;
+    	$(document).on('click', "#currentDances", function(evt) {
+    		if (!currentOpen) {
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Bad Blood"));
+    			li1.id = "badBlood";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Shake It Off"))
+    			li2.id = 'shakeItOff';
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("currentDances").appendChild(ul);
+    			currentOpen = true;
+    		} else {
+    			$("#badBlood").remove();
+    			$("#shakeItOff").remove();
+    			currentOpen = false;
+    		}
+    		
+    	});
+
+    	var previousOpen = false;
+    	$(document).on('click', "#previousDances", function(evt) {
+    		console.log(previousOpen);
+    		if (!previousOpen) {
+    			var ul = document.createElement("ul");
+    			var li1 = document.createElement("li");
+    			li1.appendChild(document.createTextNode("Fifteen"));
+    			li1.id = "fifteen";
+    			var li2 = document.createElement("li");
+    			li2.appendChild(document.createTextNode("Blank Space"))
+    			li2.id = "blankSpace";
+
+    			ul.appendChild(li1);
+    			ul.appendChild(li2);
+    			document.getElementById("previousDances").appendChild(ul);
+    			previousOpen = true;
+    		} else {
+    			console.log("check");
+    			$("#fifteen").remove();
+    			$("#blankSpace").remove();
+    			previousOpen = false;
+    		}
+    		
+    	});
+
+      $(document).on('mouseup', "#currentDances", function(evt) {
+      this.blur() })
+
+      $(document).on('mouseup', "#previousDances", function(evt) {
+      this.blur() })
+    </script>
+
+
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="navbar-header">
+              <a id="logo" class="navbar-brand" href="danceHome.html"><img style="height:40px" src="images/Logo.png"></a>
+            </div>
+              <button onclick="location.href ='index.html';" id="logout" class="logout"> Log Out</button>
+    </nav>  
+
+  <div class="container">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <div class="profile-userpic">
+          <img src="images/SelenaGomez.png" class="img-responsive" alt="" height="150" width="150">
+        </div>
+        <div class="profile-user">
+          <div class="profile-username">
+            Selena Gomez
+          </div>
+          <h6 class="profile-usertitle">Dancer</h6>
+        </div>
+
+        <div class="profile-usermenu">
+          <ul class="nav sidebar-nav">
+            <li class="dropdown" id="currentDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+                 <!--    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">True Colors</a></li>
+                      <li><a href="#">Don't Stop Believing</a></li>
+                    </ul> -->
+            </li>
+            <li class="dropdown" id="previousDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+                    <!-- <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Rumor Has It</a></li>
+                      <li><a href="#">Bring It On</a></li>
+                    </ul> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row" id="row_for_subnav">
+      <div id="danceName" style="cursor:default">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+              /*[contenteditable="true"] { padding: 10px; outline: 2px dashed #CCC; }*/
+/*              [contenteditable="true"]:hover {outline: 2px dashed #0090D2; }*/
+            </style>
+            <i class="em em-syringe"></i>Bad Blood
+          </div>
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li style="background-color:#eeeeee" class="nav-item" role="presentation"><a href="danceAbout.html">About</a></li>
+          <li class="nav-item" role="presentation"><a href="danceVideo.html">Video</a></li>
+          <li class="nav-item" role="presentation"><a href="danceStaging.html">Staging</a></li>
+          <li class="nav-item" role="presentation" class="active"><a href="danceCalendar.html">Calendar</a></li>
+          <li class="nav-item" role="presentation"><a href="danceForum.html">Forum</a></li>
+                </ul>
+           </div>
+
+        <div class="col-md-9 about" id="about">
+          <div class="titleAbout"> Announcements </div>
+          <div class="bodyAbout"> Monday's rehearsal changed to 6pm! </div>
+          <p class="bodyAbout" id="older-an">Show older announcements</p>
+          <div class="titleAbout"> Choreographer </div>
+          <div class="bodyAbout"> Taylor Swift </div>
+          <div class="titleAbout"> Dancers </div>
+          <div class="bodyAbout"> Taylor Swift (TS), Selena Gomez (SG) and Karlie Kloss (KP) </div>
+          <div class="titleAbout"> Countdown to next performance </div>
+          <div class="bodyAbout"> 20 days </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
+
+
+
+
+
+
+

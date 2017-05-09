@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?">
+
+    <title>Dance On</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    <script>
+      var currentOpen = false;
+      $(document).on('click', "#currentDances", function(evt) {
+        if (!currentOpen) {
+          var ul = document.createElement("ul");
+          var li1 = document.createElement("li");
+          li1.appendChild(document.createTextNode("Bad Blood"));
+          li1.id = "badBlood";
+          var li2 = document.createElement("li");
+          li2.appendChild(document.createTextNode("Blank Space"))
+          li2.id = 'blankSpace';
+
+          ul.appendChild(li1);
+          ul.appendChild(li2);
+          document.getElementById("currentDances").appendChild(ul);
+          currentOpen = true;
+        } else {
+          $("#badBlood").remove();
+          $("#blankSpace").remove();
+          currentOpen = false;
+        }
+        
+      });
+
+      var previousOpen = false;
+      $(document).on('click', "#previousDances", function(evt) {
+        console.log(previousOpen);
+        if (!previousOpen) {
+          var ul = document.createElement("ul");
+          var li1 = document.createElement("li");
+          li1.appendChild(document.createTextNode("Fifteen"));
+          li1.id = "fifteen";
+          var li2 = document.createElement("li");
+          li2.appendChild(document.createTextNode("Shake It Off"))
+          li2.id = "shakeItOff";
+
+          ul.appendChild(li1);
+          ul.appendChild(li2);
+          document.getElementById("previousDances").appendChild(ul);
+          previousOpen = true;
+        } else {
+          console.log("check");
+          $("#fifteen").remove();
+          $("#shakeItOff").remove();
+          previousOpen = false;
+        }
+        });
+                // Redirects to static badBlood About Page-
+        $(document).on('click', "#badBlood", function(evt) {
+            window.location.href="danceAboutbadBlood.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#shakeItOff", function(evt) {
+            window.location.href="danceAboutshakeItOff.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#fifteen", function(evt) {
+            window.location.href="danceAboutfifteen.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#blankSpace", function(evt) {
+            window.location.href="danceAboutblankSpace.html";
+        });
+
+        $(document).on('click', "#submitDance", function(evt) {
+            window.location.href="danceAboutemptyDance.html";
+        });
+
+        function chooseFile() {
+            $("#fileInput").click();
+        }
+
+<<<<<<< HEAD
+             $(document).on('click', "#submitQ", function(evt) {
+=======
+              $(document).on('click', "#submitQ", function(evt) {
+>>>>>>> 48451e22531e0088b175bae5960058809963cb4c
+                // console.log("hi")
+                document.getElementById('exampleTextarea').value='';
+                setTimeout(function(){ 
+                  $("#closeModal").trigger( "click" ); }, 1800);
+             });
+
+          $(document).ready(function () {
+          var unsaved = false;
+
+          $(":input").change(function(){ //trigers change in all input fields including text type
+            console.log("hi")
+              unsaved = true;
+          });
+
+          function unloadPage(){ 
+              if(unsaved){
+                  return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+              }
+          }
+
+          window.onbeforeunload = unloadPage;
+          });
+            
+      
+    </script>
+
+
+  </head>
+
+  <body>
+
+<nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="navbar-header">
+              <a id="logo" class="navbar-brand" href="danceHome.html"><img style="height:40px" src="images/Logo.png"></a>
+            </div>
+              <button onclick="location.href ='index.html';" id="logout" class="logout"> Log Out</button>
+    </nav>
+
+  <div class="container">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <div class="profile-userpic">
+          <img src="images/SelenaGomez.png" class="img-responsive" alt="" height="150" width="150">
+        </div>
+        <div class="profile-user">
+          <div class="profile-username">
+            Selena Gomez
+          </div>
+          <h6 class="profile-usertitle">Dancer</h6>
+        </div>
+
+        <div class="profile-usermenu">
+          <ul class="nav sidebar-nav">
+            <li class="dropdown" id="currentDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="currentDances">Current Dances <span class="caret"></span></a>
+                 <!--    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">True Colors</a></li>
+                      <li><a href="#">Don't Stop Believing</a></li>
+                    </ul> -->
+            </li>
+            <li class="dropdown" id="previousDances">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="previousDances">Previous Dances <span class="caret"></span></a>
+                    <!-- <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Rumor Has It</a></li>
+                      <li><a href="#">Bring It On</a></li>
+                    </ul> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row" id="row_for_subnav">
+        <div id="danceName" style="cursor:default">
+            <style scoped>
+              #example-one { margin-bottom: 10px; }
+            </style>
+            <i class="em em-broken_heart"></i>Blank Space
+          </div>
+          <div id="subnav">
+                <ul id="navlist" class="nav nav-justified">
+          <li class="nav-item" role="presentation"><a href="danceAboutblankSpace.html">About</a></li>
+          <li class="nav-item" role="presentation"><a href="danceVideoblankSpace.html">Video</a></li>
+          <li class="nav-item" role="presentation"><a href="danceStagingblankSpace.html">Staging</a></li>
+          <li class="nav-item" role="presentation" class="active"><a href="danceCalendarblankSpace.html">Calendar</a></li>
+          <li style="background-color:#eeeeee" class="nav-item" role="presentation"><a href="danceForumblankSpace.html">Forum</a></li>
+                </ul>
+           </div>
+
+
+                <div class="col-md-9 blogShort">
+
+                      <div class="question">
+                       <img src="images/LilyAldridge.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="40" width="40">
+                       <h1 class="question-text">Lily Aldridge:</h1>
+                       <p>On transition 1, I pass in front of RH, right?</p>
+                     </div>
+
+                      <div class-"answer">
+                       <img src="images/TaylorSwift.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="40" width="40">
+                       <h1 class="answer-text">Taylor Swift:</h1>
+                     <p> Yes. 
+                         </p>
+                      </div>
+
+                     <div id="dateFooter">
+                        <p id="dateText">Updated 1 day ago</p>
+                      </div>
+                     <!-- <a class="btn btn-blog pull-right marginBottom10" href="#3">READ MORE</a>  -->
+                 </div>
+                 
+                  <div class="col-md-9 blogShort">
+                    
+                    <div class="question">
+                    <img src="images/KarlieKloss.png" class="pull-left img-responsive thumb margin10 img-thumbnail" height="40" width="40">
+                     <h1 class="question-text">Karlie Kloss</h1>
+                     <p>On 3:20, is it one or two plies?</p>
+                    </div>
+
+                    <div class-"answer">
+                   <img src="images/TaylorSwift.png" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail" height="40" width="40">
+                   <h1 class="answer-text">Taylor Swift:</h1>
+                     <p>
+                         One.
+                         </p>
+                       </div>
+
+                       <div id="dateFooter">
+                        <p id="dateText">Updated 2 days ago</p>
+                      </div>
+                     <!-- <a class="btn btn-blog pull-right marginBottom10" href="#3">READ MORE</a>  -->
+                 </div>
+
+              <div class="col-md-9 blogShort" id="olderQs">
+                <p id="older-qs">Show older questions</p>
+              </div>
+
+              <div class="col-md-9 blogShort" id="postQ">
+                <div class="form-group">
+                 <label>Question:</label>
+                  <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitQ" data-toggle="modal" data-target="#myModal">Submit</button>
+              </div>
+
+    </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" href="#myModal">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" id="closeModal">&times;</button>
+          <h4 class="modal-title">You succesfully posted a question!</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+
+
+  </div>
+
+
+
+  </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
+
+
+
+
+
+
+

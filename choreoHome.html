@@ -25,7 +25,7 @@
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
     <!-- Custom Scripts -->
-    <script>
+        <script>
         var currentOpen = false;
         $(document).on('click', "#currentDances", function(evt) {
             if (!currentOpen) {
@@ -34,8 +34,8 @@
                 li1.appendChild(document.createTextNode("Bad Blood"));
                 li1.id = "badBlood";
                 var li2 = document.createElement("li");
-                li2.appendChild(document.createTextNode("Shake It Off"))
-                li2.id = 'shakeItOff';
+                li2.appendChild(document.createTextNode("Blank Space"))
+                li2.id = 'blankSpace';
 
                 ul.appendChild(li1);
                 ul.appendChild(li2);
@@ -43,7 +43,7 @@
                 currentOpen = true;
             } else {
                 $("#badBlood").remove();
-                $("#shakeItOff").remove();
+                $("#blankSpace").remove();
                 currentOpen = false;
             }
             
@@ -58,8 +58,8 @@
                 li1.appendChild(document.createTextNode("Fifteen"));
                 li1.id = "fifteen";
                 var li2 = document.createElement("li");
-                li2.appendChild(document.createTextNode("Blank Space"))
-                li2.id = "blankSpace";
+                li2.appendChild(document.createTextNode("Shake It Off"))
+                li2.id = "shakeItOff";
 
                 ul.appendChild(li1);
                 ul.appendChild(li2);
@@ -68,7 +68,7 @@
             } else {
                 console.log("check");
                 $("#fifteen").remove();
-                $("#blankSpace").remove();
+                $("#shakeItOff").remove();
                 previousOpen = false;
             }
             
@@ -76,11 +76,26 @@
 
         // Redirects to static badBlood About Page-
         $(document).on('click', "#badBlood", function(evt) {
-            window.location.href="choreoAbout.html";
+            window.location.href="choreoAboutbadBlood.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#shakeItOff", function(evt) {
+            window.location.href="choreoAboutshakeItOff.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#fifteen", function(evt) {
+            window.location.href="choreoAboutfifteen.html";
+        });
+
+        // Redirects to static badBlood About Page-
+        $(document).on('click', "#blankSpace", function(evt) {
+            window.location.href="choreoAboutblankSpace.html";
         });
 
         $(document).on('click', "#submitDance", function(evt) {
-            // Add the new dance here
+            window.location.href="choreoAboutemptyDance.html";
         });
 
         function chooseFile() {
@@ -88,6 +103,7 @@
         }
 
     </script>
+
   </head>
 
   <body>
@@ -102,12 +118,12 @@
     <div class="col-md-3">
       <div class="sidebar">
         <div class="profile-userpic">
-        <input type="file" id="fileInput" name="fileInput" style="height:0px; width:0px"/>
-          <input type='image' onclick="chooseFile();" src="images/TaylorSwift.png" class="img-responsive" height="150" width="150">
+        <!-- <input type="file" id="fileInput" name="fileInput" style="height:0px; width:0px"/> -->
+          <input type='image' onclick="chooseFile();" src="images/TaylorSwift.png" class="img-responsive" style="cursor:default" height="150" width="150">
         </div>
 
         <div class="profile-user">
-          <div class="profile-username" contenteditable="true" style="cursor:pointer">
+          <div class="profile-username" contenteditable="false" style="cursor:default">
             Taylor Swift
           </div>
           <h6 class="profile-usertitle">Choreographer</h6>
@@ -129,13 +145,10 @@
 
     <div class="col-md-9"></div>
         <div class="introduction">
-        <h3>Welcome to Dance On!</h3>
-        <h4>The only dancer & choreographer organization app you will ever need.</h4>
-        <i class="em em-dancers"></i><i class="em em-dancers"></i>
-        <br>
-        <h5> Get started by selecting an existing dance or by adding a new dance on the left!<br>
-        <-------------------------
-        </h5>
+        <i class="em em-dancers"></i>
+        <h3 id="quoteheader">Inspirational Dance Quote of the Day</h3>
+        <img style="height:40px" src="images/divider.png">
+        <h4 id="quote"></h4>
         </div>
     </div>
 
@@ -179,6 +192,25 @@
     <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+
+    <script type="text/javascript">
+    console.log("fuck");
+    var quotearray = new Array();
+    var num = 0;
+
+    quotearray[num++] = '"Dances have a second and third life. You feel they are never ready. <br><br> They always have a chance for another life." <br><br> - Mikhail Baryshnikov'
+    quotearray[num++] = '"Finding ballet was like finding this missing piece of myself." <br><br> - Misty Copeland'
+    quotearray[num++] = '"If you stumble, make it part of the dance." <br><br> - Anonymous'
+    quotearray[num++] = '"Practice like you\'ve never won. Perform like you\'ve never lost." <br><br> - Anonymous'
+    quotearray[num++] = '"Dancers are the athletes of god." <br><br> - Albert Einstein'
+
+    var rannum= Math.round(Math.random()*quotearray.length)-1
+    if (rannum<0){
+        rannum=0
+    }
+    document.getElementById('quote').innerHTML=quotearray[rannum];
+    </script>
+
   </body>
 </html>
 
