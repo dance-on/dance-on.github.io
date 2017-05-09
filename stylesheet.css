@@ -26,14 +26,16 @@ http://www.flatuicolorpicker.com/category/all
 .table{
   table-layout:fixed;
   width:200px;
+
 }
 
 #homeLogo{
-  margin-left:20px;
+  margin-left:-20px;
 }
 
 .table-borderless{
-  text-align:center;
+  text-align: center;
+  margin-left:-100px;
 }
 
 #emailtext{
@@ -842,7 +844,6 @@ h2{
 }
 
 .ForgotAccount{
-  margin-left:100px;
   font-size: 12px;
   text-decoration: underline;
   border: 0px;
