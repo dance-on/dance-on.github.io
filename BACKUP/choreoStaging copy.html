@@ -78,25 +78,133 @@
     		}
     	});
 
+        $(document).on('click', '#staging1', function(evt) {
+            console.log("clicked on staging");
+            var stagingNum = 1;
+            console.log("stagingNum: " + stagingNum);
+            for (i = 1; i <= numStagings; i++) {
+                if (i == stagingNum) {
+                    $("#staging" + i).css({"border-color": "#7f8c8d"});
+                } else {
+                    $("#staging" + i).css({"border-color": "#bdc3c7"});
+                }
+            }
+            $('#currentStaging').find('*').not('#trashcan').remove();
+            var staging = document.getElementById('staging1');
+            var dots = $(staging).children();
+            console.log("length of dots: " + dots.length);
+            for (i = 1; i <= dots.length; i++) {
+                var dot = document.getElementById(stagingNum+ '-' + i);
+                var top = dot.offsetTop - staging.offsetTop - 3;
+                var left = dot.offsetLeft - staging.offsetLeft - 3;
+                var dotID = dot.id;
+                var color = dot.class.substring(0, dot.class.indexOf('-'));
+                var initials = dot.class.substring(dot.class.indexOf('-') + 1, dot.class.length);
+                var div = document.createElement("div");
+                div.style.color="white";
+                div.id = numDancers + '-tag';
+                document.getElementById("currentStaging").appendChild(div);
+                document.getElementById(numDancers + '-tag').innerHTML = initials;
+                $(div).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '0px', 'left': '0px'});
+                console.log('initials: ' + initials);
+                console.log("dotID: " + dotID);
+
+                var image = document.createElement('img');
+                image.id = dotID.substring(dotID.indexOf('-') + 1, dotID.length);
+                console.log("image.id: " + image.id);
+                image.src = 'images/' + color + '_circle.png';
+                image.width = 40;
+                image.height = 40;
+                document.getElementById("currentStaging").appendChild(image);
+                console.log('top: ' + top);
+                $(image).css({'position': 'absolute', 'top': top*3, 'left': left*3, 'cursor':'pointer'});
+
+                $(image).mousedown(function(evt){
+                    evt.preventDefault();
+                    activeDancer = image.id;
+                    activeStaging = stagingNum;
+                    console.log('activeDancer: ' + activeDancer);
+                    var pos = $(image).position();
+                    startingX = pos.left;
+                    startingY = pos.top;
+                    mouseOffsetX = evt.clientX - $(image).offset().left;
+                    mouseOffsetY = evt.clientY - $(image).offset().top;
+
+                    var trash = document.getElementById("trashcan");
+                    console.log('trash: ' + trash);
+                    $(trash).css({'opacity': 1});
+                });
+            }
+        });
+
     	var numStagings = 1;
     	$(document).on('click', "#newStaging", function(evt) {
     		numStagings += 1;
     		activeStaging = numStagings;
     		var ul = document.getElementById("stagingList");
     		var li = document.createElement("li");
-        $(li).css({'cursor':'default'});
+            $(li).css({'cursor':'default'});
     		var div = document.createElement("div");
     		$(div).css({'height': '150', 'width': '200','margin-top':'5px','cursor':'default'});
     		li.appendChild(div);
     		div.id = "staging" + numStagings;
     		ul.appendChild(li);
+            $(document).on('click', '#' + div.id, function(evt) {
+                var stagingNum = parseInt(div.id.substring(7, div.id.length));
+                console.log("stagingNum: " + stagingNum);
+                for (i = 1; i <= numStagings; i++) {
+                    if (i == stagingNum) {
+                        $("#staging" + i).css({"border-color": "#7f8c8d"});
+                    } else {
+                        $("#staging" + i).css({"border-color": "#bdc3c7"});
+                    }
+                }
+
+                $('#currentStaging').find('*').not('#trashcan').remove();
+                var staging = document.getElementById('staging1');
+                var dots = $(staging).children();
+                console.log("length of dots: " + dots.length);
+                for (i = 1; i <= dots.length; i++) {
+                    var dot = document.getElementById(stagingNum+ '-' + i);
+                    var top = dot.offsetTop - staging.offsetTop - 3;
+                    var left = dot.offsetLeft - staging.offsetLeft - 3;
+                    var dotID = dot.id;
+                    console.log('src: ' + dot.src);
+                    var color = dot.class.substring(0, dot.class.indexOf('-'));
+                    console.log('color: ' + color);
+                    console.log("dotID: " + dotID);
+
+                    var image = document.createElement('img');
+                    image.id = dotID.substring(dotID.indexOf('-') + 1, dotID.length);
+                    console.log("image.id: " + image.id);
+                    image.src = 'images/' + color + '_circle.png';
+                    image.width = 40;
+                    image.height = 40;
+                    document.getElementById("currentStaging").appendChild(image);
+                    console.log('top: ' + top);
+                    $(image).css({'position': 'absolute', 'top': top*3, 'left': left*3, 'cursor':'pointer'});
+
+                    $(image).mousedown(function(evt){
+                        evt.preventDefault();
+                        activeDancer = image.id;
+                        var pos = $(image).position();
+                        startingX = pos.left;
+                        startingY = pos.top;
+                        mouseOffsetX = evt.clientX - $(image).offset().left;
+                        mouseOffsetY = evt.clientY - $(image).offset().top;
+
+                        var trash = document.getElementById("trashcan");
+                        $(trash).css({'opacity': 1});
+                    });
+                }
+            });
 
     		$("#" + div.id).css({"border-style": "solid"});
-        $("#" + div.id).css({"border-color": "#7f8c8d"});
+            $("#" + div.id).css({"border-color": "#7f8c8d"});
     		for (i = 1; i < numStagings; i++) {
     			$("#staging" + i).css({"border-color": "#bdc3c7"});
     		}
-    		$("#currentStaging").empty();
+            $('#currentStaging').find('*').not('#trashcan').remove();
     	});
 
     	var numDancers = 0;
@@ -114,14 +222,14 @@
     		var initials = document.getElementById('name_tag').value;
     		initialsToID[initials] = numDancers + '-tag';
     		var div = document.createElement("div");
-        div.style.color="white";
+        	div.style.color="white";
     		div.id = numDancers + '-tag';
     		document.getElementById("currentStaging").appendChild(div);
     		document.getElementById(numDancers + '-tag').innerHTML = initials;
     		$(div).css({'position': 'absolute', 'text-align': 'center', 'width': '40px', 'height': '40px', 'padding-top': '9px', 'pointer-events': 'none', 'z-index': '2', 'top': '0px', 'left': '0px'});
 
     		var color = colorOptions.options[colorOptions.selectedIndex].value;
-    		console.log("color: " + color);
+    		// console.log("color: " + color);
     		image.id = numDancers;
     		image.src = 'images/' + color + '_circle.png';
     		image.width = 40;
@@ -138,6 +246,9 @@
     			startingY = pos.top;
     			mouseOffsetX = evt.clientX - $(image).offset().left;
     			mouseOffsetY = evt.clientY - $(image).offset().top;
+
+                var trash = document.getElementById("trashcan");
+                $(trash).css({'opacity': 1});
     		});
 
     		var image2 = document.createElement("img");
@@ -145,7 +256,10 @@
     		image2.src = 'images/' + color + '_circle.png';
     		image2.width = 40/3.0;
     		image2.height = 40/3.0;
-    		$(image2).css({'position':'relative', 'top': -5, 'left': 0, 'z-index': '1'});
+            image2.class = color + '-' + initials;
+    		// $(image2).css({'position':'relative', 'top': -5, 'left':  - 13*(numDancers - 1), 'z-index': '1'});
+            $(image2).css({'position':'absolute', 'top': 144, 'left': 43, 'z-index': '1'});
+            // $(image2).css({'position':'relative', 'top': -5, 'left': 0, 'z-index': '1'});
     		document.getElementById("staging" + activeStaging).append(image2);
     	});
 
@@ -158,32 +272,110 @@
     	});
 
     	$(document).mouseup(function(evt) {
+
     		evt.preventDefault();
     		if (activeDancer != null) {
     			var pos = $("#" + activeDancer).position();
-    			if (pos.left < 0 || pos.left > 600 || pos.top < 0 || pos.top > 450) {
+    			if (pos.left < 0 || pos.left + 46 > 600 || pos.top < 0 || pos.top + 76 > 450) {
     				$('#' + activeDancer).css({'top': startingY, 'left': startingX});
     				$('#' + activeDancer + '-tag').css({'top': startingY, 'left': startingX});
-    				$('#' + activeStaging + "-" + activeDancer).css({'top': Math.floor(startingY/3.0), 'left': Math.floor(startingX/3.0)});
+    				// $('#' + activeStaging + "-" + activeDancer).css({'top': Math.floor(startingY/3.0), 'left': Math.floor(startingX/3.0)});
+    				$('#' + activeStaging + "-" + activeDancer).css({'top': startingY/3.0 - 5, 'left': startingX/3.0 - 13*(parseInt(activeDancer)-1)});
     			} else {
-	    			$('#' + activeStaging + "-" + activeDancer).css({'top': Math.floor(pos.top/3.0), 'left': Math.floor(pos.left/3.0)});
+                    console.log("check mousup");
+                    console.log("pos.top: " + pos.top);
+                    console.log("pos.left: " + pos.left);
+                    console.log('activeDancer: ' + activeDancer);
+	    			// $('#' + activeStaging + "-" + activeDancer).css({'top': Math.floor(pos.top/3.0) - 5, 'left': Math.floor(pos.left/3.0)- 13*(parseInt(activeDancer)-1)});
+                    $('#' + activeStaging + "-" + activeDancer).css({'top': Math.floor(pos.top/3.0) + 144, 'left': Math.floor(pos.left/3.0) + 43});
     			}
-    			
+                if ((pos.top > 360 && pos.top < 420) && (pos.left > 540 && pos.left < 600)) {
+                        console.log("delete");
+                        var dancer = document.getElementById(activeDancer);
+                        dancer.parentNode.removeChild(dancer);
+
+                        var dancerSmall = document.getElementById(activeStaging + "-" + activeDancer);
+                        dancerSmall.parentNode.removeChild(dancerSmall);
+                    }
+    			var trash = document.getElementById("trashcan");
+                $(trash).css({'opacity': 0});
     		}
     		activeDancer = null;
     	});
 
-    	// $(document).on('click', "#submit-delete", function(evt) {
-    	// 	var initials = document.getElementById('name_tag').value;
-    	// 	var name = document.getElementById(initialsToID.initials);
-    	// 	var nameID = initialsToID.initials;
-    	// 	console.log('check2');
-    	// 	document.getElementById("currentStaging").removeChild(name);
-    	// 	var imageID = nameID.substr(0, nameID.indexOf('-'));
-    	// 	console.log('imageID: ' + imageID);
-    	// 	var image = document.getElementById(imageID);
-    	// 	document.getElementById('currentStaging').removeChild(image);
-    	// });
+    	var grid = false;
+    	$(document).on('click', '#grid', function(evt) {
+    		if (grid) {
+    			grid = false;
+    			var gridObject = document.getElementById('grid');
+    			gridObject.value = 'Show Grid';
+    			var table = document.getElementById('gridTable');
+    			table.parentNode.removeChild(table);
+
+    		} else {
+    			grid = true;
+    			var gridObject = document.getElementById('grid');
+    			gridObject.value = 'Hide Grid';
+    			console.log('check');
+
+    			var table = document.createElement('table');
+    			table.id = "gridTable";
+    			table.border = 1;
+    			document.getElementById('currentStaging').appendChild(table);
+    			$(table).css({'width': '598px', 'height': '418px', 'position': 'absolute', 'left': '-2px', 'top': '-2px', 'z-index': '-1'});
+    			var tr1 = document.createElement('tr');
+    			tr1.id = 'tr1';
+    			document.getElementById('gridTable').appendChild(tr1);
+
+    			var tr2 = document.createElement('tr');
+    			tr2.id = 'tr2';
+    			document.getElementById('gridTable').appendChild(tr2);
+
+    			var tr3 = document.createElement('tr');
+    			tr3.id = 'tr3';
+    			document.getElementById('gridTable').appendChild(tr3);
+
+    			var tr4 = document.createElement('tr');
+    			tr4.id = 'tr4';
+    			document.getElementById('gridTable').appendChild(tr4);
+
+    			var td1 = document.createElement('td');
+    			var td2 = document.createElement('td');
+    			var td3 = document.createElement('td');
+    			var td4 = document.createElement('td');
+    			document.getElementById('tr1').appendChild(td1);
+    			document.getElementById('tr1').appendChild(td2);
+    			document.getElementById('tr1').appendChild(td3);
+    			document.getElementById('tr1').appendChild(td4);
+
+    			var td5 = document.createElement('td');
+    			var td6 = document.createElement('td');
+    			var td7 = document.createElement('td');
+    			var td8 = document.createElement('td');
+    			document.getElementById('tr2').appendChild(td5);
+    			document.getElementById('tr2').appendChild(td6);
+    			document.getElementById('tr2').appendChild(td7);
+    			document.getElementById('tr2').appendChild(td8);
+
+    			var td9 = document.createElement('td');
+    			var td10 = document.createElement('td');
+    			var td11 = document.createElement('td');
+    			var td12 = document.createElement('td');
+    			document.getElementById('tr3').appendChild(td9);
+    			document.getElementById('tr3').appendChild(td10);
+    			document.getElementById('tr3').appendChild(td11);
+    			document.getElementById('tr3').appendChild(td12);
+
+    			var td13 = document.createElement('td');
+    			var td14 = document.createElement('td');
+    			var td15 = document.createElement('td');
+    			var td16 = document.createElement('td');
+    			document.getElementById('tr4').appendChild(td13);
+    			document.getElementById('tr4').appendChild(td14);
+    			document.getElementById('tr4').appendChild(td15);
+    			document.getElementById('tr4').appendChild(td16);
+    		}
+    	});
 
     </script>
 
@@ -253,11 +445,12 @@
       <div id="stagings">
       	<ul id="stagingList">
       		<li style="cursor:default">
-            <div id="staging1" style="border-width:3px; color:#7f8c8d; width:200px; height:150px; cursor:default"></div>
+            <div id="staging1" style="border-width:3px; color:#7f8c8d; width:200px; height:140px; cursor:default"></div>
           </li>
         </ul>
 <!--         <canvas id="currentStaging" width="600" height="450" style="position:absolute; left:300px; top:70px"></canvas> -->
         <div id="currentStaging" style="border-width:3px; color:#7f8c8d; position:absolute; left:300px; top:97px; height:420px; width:600px">
+        <img id="trashcan" src="images/trashcan.png" style="opacity: 0"></a>
         </div>
         
         <div id="currentStagingLabel" width="600px" height="40px" style="position:absolute;left:300px; top:530px">
@@ -268,8 +461,12 @@
           <div class="form-group">
         	  <input id="addDancer" value="Add Dancer" type="button" class="btn" data-toggle="modal" data-target="#myModal2">
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <input id="deleteDancer" value="Delete Dancer" type="button" class="btn" data-toggle="modal" data-target="#myModal3">
+          </div>
+ -->      
+          <div class="form-group">
+          	<input id="grid" value="Show Grid" type="button" class="btn" style="margin-left: 280px">
           </div>
         </div>
         </div>
@@ -315,8 +512,11 @@
               <label for="sel1">Choose color:</label>
               <select class="form-control" id="dancer_color">
                 <option>red</option>
-                <option>blue</option>
+                <option>orange</option>
                 <option>green</option>
+                <option>blue</option>
+                <option>purple</option>
+                <option>pink</option>
               </select>
             </div>
         </div>
