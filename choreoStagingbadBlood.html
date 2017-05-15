@@ -125,7 +125,7 @@
                 image.id = dotID.substring(dotID.indexOf('-') + 1, dotID.length);
                 image.className = 'dancerDot';
                 // console.log("image.id: " + image.id);
-                image.src = 'images/' + color + '_circle.png';
+                image.src = 'images/' + color + 'circle.png';
                 image.width = 40;
                 image.height = 40;
                 document.getElementById("currentStaging").appendChild(image);
@@ -216,7 +216,7 @@
                     image.id = dotID.substring(dotID.indexOf('-') + 1, dotID.length);
                     image.className = 'dancerDot';
                     console.log("image.id: " + image.id);
-                    image.src = 'images/' + color + '_circle.png';
+                    image.src = 'images/' + color + 'circle.png';
                     image.width = 40;
                     image.height = 40;
                     document.getElementById("currentStaging").appendChild(image);
@@ -286,7 +286,7 @@
             // console.log("color: " + color);
             image.id = numDancers;
             image.className = 'dancerDot';
-            image.src = 'images/' + color + '_circle.png';
+            image.src = 'images/' + color + 'circle.png';
             image.width = 40;
             image.height = 40;
 
@@ -323,7 +323,7 @@
 
             var image2 = document.createElement("img");
             image2.id = activeStaging + '-' + numDancers;
-            image2.src = 'images/' + color + '_circle.png';
+            image2.src = 'images/' + color + 'circle.png';
             image2.width = 40/3.0;
             image2.height = 40/3.0;
             image2.class = color + '-' + initials;
